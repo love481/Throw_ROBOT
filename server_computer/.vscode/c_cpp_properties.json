@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/**",
+                "/opt/ros/noetic/include/**",
+                "${workspaceRoot}/src/sensor_devices/include",
+                "${workspaceRoot}/src/control/include",
+                "${workspaceRoot}/src/actuator/include",
+                "${workspaceRoot}/src/filters_algorithms/include",
+                "${workspaceRoot}/src/urg_node/include"
+            ],
+            "name": "ROS",
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}

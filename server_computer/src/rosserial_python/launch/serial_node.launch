@@ -1,0 +1,9 @@
+<!-- <launch>
+<!-- <node ns="stm" name="stm1" pkg="rosserial_python" type="serial_node0.py" args="/dev/stm1" output="screen" /> -->
+<node ns="arduino_nano" name="arduino_nano1" pkg="rosserial_python" type="serial_node0.py" output="screen">
+   <param name="serial_port" value="/dev/IMU"/>
+   <param name="serial_baud" value="115200"/>
+</node>
+
+ 
+</launch> -->

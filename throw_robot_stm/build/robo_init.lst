@@ -1,0 +1,1707 @@
+ARM GAS  /tmp/cc7wK8fc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"robo_init.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZNK9actuators18motor_driver_param9serializeEPh,"axG",%progbits,_ZNK9actuators18mot
+  18              		.align	1
+  19              		.weak	_ZNK9actuators18motor_driver_param9serializeEPh
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_ZNK9actuators18motor_driver_param9serializeEPh:
+  27              	.LVL0:
+  28              	.LFB153:
+  29              		.file 1 "Core/Inc/ros/actuators/motor_driver_param.h"
+   1:Core/Inc/ros/actuators/motor_driver_param.h **** #ifndef _ROS_actuators_motor_driver_param_h
+   2:Core/Inc/ros/actuators/motor_driver_param.h **** #define _ROS_actuators_motor_driver_param_h
+   3:Core/Inc/ros/actuators/motor_driver_param.h **** 
+   4:Core/Inc/ros/actuators/motor_driver_param.h **** #include <stdint.h>
+   5:Core/Inc/ros/actuators/motor_driver_param.h **** #include <string.h>
+   6:Core/Inc/ros/actuators/motor_driver_param.h **** #include <stdlib.h>
+   7:Core/Inc/ros/actuators/motor_driver_param.h **** #include "ros/msg.h"
+   8:Core/Inc/ros/actuators/motor_driver_param.h **** 
+   9:Core/Inc/ros/actuators/motor_driver_param.h **** namespace actuators
+  10:Core/Inc/ros/actuators/motor_driver_param.h **** {
+  11:Core/Inc/ros/actuators/motor_driver_param.h **** 
+  12:Core/Inc/ros/actuators/motor_driver_param.h ****   class motor_driver_param : public ros::Msg
+  13:Core/Inc/ros/actuators/motor_driver_param.h ****   {
+  14:Core/Inc/ros/actuators/motor_driver_param.h ****     public:
+  15:Core/Inc/ros/actuators/motor_driver_param.h ****       typedef uint8_t _id_type;
+  16:Core/Inc/ros/actuators/motor_driver_param.h ****       _id_type id;
+  17:Core/Inc/ros/actuators/motor_driver_param.h ****       typedef uint8_t _dir1_type;
+  18:Core/Inc/ros/actuators/motor_driver_param.h ****       _dir1_type dir1;
+  19:Core/Inc/ros/actuators/motor_driver_param.h ****       typedef uint8_t _dir2_type;
+  20:Core/Inc/ros/actuators/motor_driver_param.h ****       _dir2_type dir2;
+  21:Core/Inc/ros/actuators/motor_driver_param.h ****       typedef uint16_t _pwm_type;
+  22:Core/Inc/ros/actuators/motor_driver_param.h ****       _pwm_type pwm;
+  23:Core/Inc/ros/actuators/motor_driver_param.h **** 
+  24:Core/Inc/ros/actuators/motor_driver_param.h ****     motor_driver_param():
+  25:Core/Inc/ros/actuators/motor_driver_param.h ****       id(0),
+  26:Core/Inc/ros/actuators/motor_driver_param.h ****       dir1(0),
+  27:Core/Inc/ros/actuators/motor_driver_param.h ****       dir2(0),
+  28:Core/Inc/ros/actuators/motor_driver_param.h ****       pwm(0)
+  29:Core/Inc/ros/actuators/motor_driver_param.h ****     {
+ARM GAS  /tmp/cc7wK8fc.s 			page 2
+
+
+  30:Core/Inc/ros/actuators/motor_driver_param.h ****     }
+  31:Core/Inc/ros/actuators/motor_driver_param.h **** 
+  32:Core/Inc/ros/actuators/motor_driver_param.h ****     virtual int serialize(unsigned char *outbuffer) const override
+  30              		.loc 1 32 17 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  33:Core/Inc/ros/actuators/motor_driver_param.h ****     {
+  34:Core/Inc/ros/actuators/motor_driver_param.h ****       int offset = 0;
+  35              		.loc 1 34 7 view .LVU1
+  35:Core/Inc/ros/actuators/motor_driver_param.h ****       *(outbuffer + offset + 0) = (this->id >> (8 * 0)) & 0xFF;
+  36              		.loc 1 35 7 view .LVU2
+  37              		.loc 1 35 42 is_stmt 0 view .LVU3
+  38 0000 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+  39              		.loc 1 35 33 view .LVU4
+  40 0002 0B70     		strb	r3, [r1]
+  36:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->id);
+  41              		.loc 1 36 7 is_stmt 1 view .LVU5
+  42              	.LVL1:
+  37:Core/Inc/ros/actuators/motor_driver_param.h ****       *(outbuffer + offset + 0) = (this->dir1 >> (8 * 0)) & 0xFF;
+  43              		.loc 1 37 7 view .LVU6
+  44              		.loc 1 37 42 is_stmt 0 view .LVU7
+  45 0004 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+  46              		.loc 1 37 33 view .LVU8
+  47 0006 4B70     		strb	r3, [r1, #1]
+  38:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->dir1);
+  48              		.loc 1 38 7 is_stmt 1 view .LVU9
+  49              	.LVL2:
+  39:Core/Inc/ros/actuators/motor_driver_param.h ****       *(outbuffer + offset + 0) = (this->dir2 >> (8 * 0)) & 0xFF;
+  50              		.loc 1 39 7 view .LVU10
+  51              		.loc 1 39 42 is_stmt 0 view .LVU11
+  52 0008 8379     		ldrb	r3, [r0, #6]	@ zero_extendqisi2
+  53              		.loc 1 39 33 view .LVU12
+  54 000a 8B70     		strb	r3, [r1, #2]
+  40:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->dir2);
+  55              		.loc 1 40 7 is_stmt 1 view .LVU13
+  56              	.LVL3:
+  41:Core/Inc/ros/actuators/motor_driver_param.h ****       *(outbuffer + offset + 0) = (this->pwm >> (8 * 0)) & 0xFF;
+  57              		.loc 1 41 7 view .LVU14
+  58              		.loc 1 41 42 is_stmt 0 view .LVU15
+  59 000c 0389     		ldrh	r3, [r0, #8]
+  60              		.loc 1 41 33 view .LVU16
+  61 000e CB70     		strb	r3, [r1, #3]
+  42:Core/Inc/ros/actuators/motor_driver_param.h ****       *(outbuffer + offset + 1) = (this->pwm >> (8 * 1)) & 0xFF;
+  62              		.loc 1 42 7 is_stmt 1 view .LVU17
+  63              		.loc 1 42 42 is_stmt 0 view .LVU18
+  64 0010 0389     		ldrh	r3, [r0, #8]
+  65              		.loc 1 42 46 view .LVU19
+  66 0012 1B0A     		lsrs	r3, r3, #8
+  67              		.loc 1 42 33 view .LVU20
+  68 0014 0B71     		strb	r3, [r1, #4]
+  43:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->pwm);
+  69              		.loc 1 43 7 is_stmt 1 view .LVU21
+  70              	.LVL4:
+  44:Core/Inc/ros/actuators/motor_driver_param.h ****       return offset;
+  71              		.loc 1 44 7 view .LVU22
+ARM GAS  /tmp/cc7wK8fc.s 			page 3
+
+
+  45:Core/Inc/ros/actuators/motor_driver_param.h ****     }
+  72              		.loc 1 45 5 is_stmt 0 view .LVU23
+  73 0016 0520     		movs	r0, #5
+  74              	.LVL5:
+  75              		.loc 1 45 5 view .LVU24
+  76 0018 7047     		bx	lr
+  77              		.cfi_endproc
+  78              	.LFE153:
+  80              		.section	.text._ZN9actuators18motor_driver_param11deserializeEPh,"axG",%progbits,_ZN9actuators18mo
+  81              		.align	1
+  82              		.weak	_ZN9actuators18motor_driver_param11deserializeEPh
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  86              		.fpu fpv4-sp-d16
+  88              	_ZN9actuators18motor_driver_param11deserializeEPh:
+  89              	.LVL6:
+  90              	.LFB154:
+  46:Core/Inc/ros/actuators/motor_driver_param.h **** 
+  47:Core/Inc/ros/actuators/motor_driver_param.h ****     virtual int deserialize(unsigned char *inbuffer) override
+  91              		.loc 1 47 17 is_stmt 1 view -0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+  48:Core/Inc/ros/actuators/motor_driver_param.h ****     {
+  49:Core/Inc/ros/actuators/motor_driver_param.h ****       int offset = 0;
+  96              		.loc 1 49 7 view .LVU26
+  50:Core/Inc/ros/actuators/motor_driver_param.h ****       this->id =  ((uint8_t) (*(inbuffer + offset)));
+  97              		.loc 1 50 7 view .LVU27
+  98              		.loc 1 50 31 is_stmt 0 view .LVU28
+  99 0000 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 100              		.loc 1 50 16 view .LVU29
+ 101 0002 0371     		strb	r3, [r0, #4]
+  51:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->id);
+ 102              		.loc 1 51 7 is_stmt 1 view .LVU30
+ 103              	.LVL7:
+  52:Core/Inc/ros/actuators/motor_driver_param.h ****       this->dir1 =  ((uint8_t) (*(inbuffer + offset)));
+ 104              		.loc 1 52 7 view .LVU31
+ 105              		.loc 1 52 33 is_stmt 0 view .LVU32
+ 106 0004 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 107              		.loc 1 52 18 view .LVU33
+ 108 0006 4371     		strb	r3, [r0, #5]
+  53:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->dir1);
+ 109              		.loc 1 53 7 is_stmt 1 view .LVU34
+ 110              	.LVL8:
+  54:Core/Inc/ros/actuators/motor_driver_param.h ****       this->dir2 =  ((uint8_t) (*(inbuffer + offset)));
+ 111              		.loc 1 54 7 view .LVU35
+ 112              		.loc 1 54 33 is_stmt 0 view .LVU36
+ 113 0008 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 114              		.loc 1 54 18 view .LVU37
+ 115 000a 8371     		strb	r3, [r0, #6]
+  55:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->dir2);
+ 116              		.loc 1 55 7 is_stmt 1 view .LVU38
+ 117              	.LVL9:
+  56:Core/Inc/ros/actuators/motor_driver_param.h ****       this->pwm =  ((uint16_t) (*(inbuffer + offset)));
+ 118              		.loc 1 56 7 view .LVU39
+ARM GAS  /tmp/cc7wK8fc.s 			page 4
+
+
+ 119              		.loc 1 56 21 is_stmt 0 view .LVU40
+ 120 000c CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 121              		.loc 1 56 17 view .LVU41
+ 122 000e 0381     		strh	r3, [r0, #8]	@ movhi
+  57:Core/Inc/ros/actuators/motor_driver_param.h ****       this->pwm |= ((uint16_t) (*(inbuffer + offset + 1))) << (8 * 1);
+ 123              		.loc 1 57 7 is_stmt 1 view .LVU42
+ 124              		.loc 1 57 33 is_stmt 0 view .LVU43
+ 125 0010 0A79     		ldrb	r2, [r1, #4]	@ zero_extendqisi2
+ 126              		.loc 1 57 17 view .LVU44
+ 127 0012 43EA0223 		orr	r3, r3, r2, lsl #8
+ 128 0016 0381     		strh	r3, [r0, #8]	@ movhi
+  58:Core/Inc/ros/actuators/motor_driver_param.h ****       offset += sizeof(this->pwm);
+ 129              		.loc 1 58 7 is_stmt 1 view .LVU45
+ 130              	.LVL10:
+  59:Core/Inc/ros/actuators/motor_driver_param.h ****      return offset;
+ 131              		.loc 1 59 6 view .LVU46
+  60:Core/Inc/ros/actuators/motor_driver_param.h ****     }
+ 132              		.loc 1 60 5 is_stmt 0 view .LVU47
+ 133 0018 0520     		movs	r0, #5
+ 134              	.LVL11:
+ 135              		.loc 1 60 5 view .LVU48
+ 136 001a 7047     		bx	lr
+ 137              		.cfi_endproc
+ 138              	.LFE154:
+ 140              		.section	.rodata._ZN9actuators18motor_driver_param7getTypeEv.str1.4,"aMS",%progbits,1
+ 141              		.align	2
+ 142              	.LC0:
+ 143 0000 61637475 		.ascii	"actuators/motor_driver_param\000"
+ 143      61746F72 
+ 143      732F6D6F 
+ 143      746F725F 
+ 143      64726976 
+ 144              		.section	.text._ZN9actuators18motor_driver_param7getTypeEv,"axG",%progbits,_ZN9actuators18motor_dr
+ 145              		.align	1
+ 146              		.weak	_ZN9actuators18motor_driver_param7getTypeEv
+ 147              		.syntax unified
+ 148              		.thumb
+ 149              		.thumb_func
+ 150              		.fpu fpv4-sp-d16
+ 152              	_ZN9actuators18motor_driver_param7getTypeEv:
+ 153              	.LVL12:
+ 154              	.LFB155:
+  61:Core/Inc/ros/actuators/motor_driver_param.h **** 
+  62:Core/Inc/ros/actuators/motor_driver_param.h ****     virtual const char * getType() override { return "actuators/motor_driver_param"; };
+ 155              		.loc 1 62 26 is_stmt 1 view -0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              		.loc 1 62 47 view .LVU50
+ 161              		.loc 1 62 86 is_stmt 0 view .LVU51
+ 162 0000 0048     		ldr	r0, .L4
+ 163              	.LVL13:
+ 164              		.loc 1 62 86 view .LVU52
+ 165 0002 7047     		bx	lr
+ 166              	.L5:
+ 167              		.align	2
+ARM GAS  /tmp/cc7wK8fc.s 			page 5
+
+
+ 168              	.L4:
+ 169 0004 00000000 		.word	.LC0
+ 170              		.cfi_endproc
+ 171              	.LFE155:
+ 173              		.section	.rodata._ZN9actuators18motor_driver_param6getMD5Ev.str1.4,"aMS",%progbits,1
+ 174              		.align	2
+ 175              	.LC1:
+ 176 0000 34646437 		.ascii	"4dd7daa3fbb798d83aefe25263d7d1e1\000"
+ 176      64616133 
+ 176      66626237 
+ 176      39386438 
+ 176      33616566 
+ 177              		.section	.text._ZN9actuators18motor_driver_param6getMD5Ev,"axG",%progbits,_ZN9actuators18motor_dri
+ 178              		.align	1
+ 179              		.weak	_ZN9actuators18motor_driver_param6getMD5Ev
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.fpu fpv4-sp-d16
+ 185              	_ZN9actuators18motor_driver_param6getMD5Ev:
+ 186              	.LVL14:
+ 187              	.LFB156:
+  63:Core/Inc/ros/actuators/motor_driver_param.h ****     virtual const char * getMD5() override { return "4dd7daa3fbb798d83aefe25263d7d1e1"; };
+ 188              		.loc 1 63 26 is_stmt 1 view -0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 193              		.loc 1 63 46 view .LVU54
+ 194              		.loc 1 63 89 is_stmt 0 view .LVU55
+ 195 0000 0048     		ldr	r0, .L7
+ 196              	.LVL15:
+ 197              		.loc 1 63 89 view .LVU56
+ 198 0002 7047     		bx	lr
+ 199              	.L8:
+ 200              		.align	2
+ 201              	.L7:
+ 202 0004 00000000 		.word	.LC1
+ 203              		.cfi_endproc
+ 204              	.LFE156:
+ 206              		.section	.text._ZN10free_wheelD2Ev,"axG",%progbits,_ZN10free_wheelD5Ev,comdat
+ 207              		.align	1
+ 208              		.weak	_ZN10free_wheelD2Ev
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 212              		.fpu fpv4-sp-d16
+ 214              	_ZN10free_wheelD2Ev:
+ 215              	.LVL16:
+ 216              	.LFB180:
+ 217              		.file 2 "Core/Inc/actuator/free_wheel.h"
+   1:Core/Inc/actuator/free_wheel.h **** #ifndef _FREE_WHEEL_H_
+   2:Core/Inc/actuator/free_wheel.h **** #define _FREE_WHEEL_H_
+   3:Core/Inc/actuator/free_wheel.h **** #include"gpio.h"
+   4:Core/Inc/actuator/free_wheel.h **** struct free_wheel_config
+   5:Core/Inc/actuator/free_wheel.h **** {
+   6:Core/Inc/actuator/free_wheel.h **** 
+ARM GAS  /tmp/cc7wK8fc.s 			page 6
+
+
+   7:Core/Inc/actuator/free_wheel.h ****     GPIO_TypeDef *port;
+   8:Core/Inc/actuator/free_wheel.h ****     uint16_t pin;
+   9:Core/Inc/actuator/free_wheel.h ****     int32_t count;
+  10:Core/Inc/actuator/free_wheel.h ****     float radius;
+  11:Core/Inc/actuator/free_wheel.h ****     float ppr;
+  12:Core/Inc/actuator/free_wheel.h ****     char id;
+  13:Core/Inc/actuator/free_wheel.h **** };
+  14:Core/Inc/actuator/free_wheel.h **** class free_wheel
+  15:Core/Inc/actuator/free_wheel.h **** {
+  16:Core/Inc/actuator/free_wheel.h **** private:
+  17:Core/Inc/actuator/free_wheel.h **** free_wheel_config *config;
+  18:Core/Inc/actuator/free_wheel.h **** float ds;
+  19:Core/Inc/actuator/free_wheel.h **** public:
+  20:Core/Inc/actuator/free_wheel.h ****     free_wheel() 
+  21:Core/Inc/actuator/free_wheel.h ****     {  config=new free_wheel_config;
+  22:Core/Inc/actuator/free_wheel.h ****     }
+  23:Core/Inc/actuator/free_wheel.h ****     free_wheel(free_wheel &&) = default;
+  24:Core/Inc/actuator/free_wheel.h ****     free_wheel(const free_wheel &) = default;
+  25:Core/Inc/actuator/free_wheel.h ****     free_wheel &operator=(free_wheel &&) = default;
+  26:Core/Inc/actuator/free_wheel.h ****     free_wheel &operator=(const free_wheel&) = default;
+  27:Core/Inc/actuator/free_wheel.h ****     ~free_wheel() {}
+ 218              		.loc 2 27 5 is_stmt 1 view -0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 0
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222              		@ link register save eliminated.
+ 223              		.loc 2 27 20 is_stmt 0 view .LVU58
+ 224 0000 7047     		bx	lr
+ 225              		.cfi_endproc
+ 226              	.LFE180:
+ 228              		.weak	_ZN10free_wheelD1Ev
+ 229              		.thumb_set _ZN10free_wheelD1Ev,_ZN10free_wheelD2Ev
+ 230              		.section	.text.__tcf_0,"ax",%progbits
+ 231              		.align	1
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu fpv4-sp-d16
+ 237              	__tcf_0:
+ 238              	.LFB190:
+ 239              		.file 3 "Core/Src/robot/robo_init.cpp"
+   1:Core/Src/robot/robo_init.cpp **** #include"robo_init.h"
+   2:Core/Src/robot/robo_init.cpp **** //initilize all objects and their configurations
+   3:Core/Src/robot/robo_init.cpp **** static Motor_config motor_configurations[4];
+   4:Core/Src/robot/robo_init.cpp **** static free_wheel_config ex_config,ey_config;
+   5:Core/Src/robot/robo_init.cpp **** free_wheel ex,ey;
+   6:Core/Src/robot/robo_init.cpp **** motor motor_[4];
+ 240              		.loc 3 6 7 is_stmt 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		@ link register save eliminated.
+ 245              		.loc 3 6 7 is_stmt 0 view .LVU60
+ 246 0000 034B     		ldr	r3, .L14
+ 247 0002 00E0     		b	.L12
+ 248              	.L13:
+ 249              		.loc 3 6 7 discriminator 3 view .LVU61
+ARM GAS  /tmp/cc7wK8fc.s 			page 7
+
+
+ 250 0004 103B     		subs	r3, r3, #16
+ 251              	.LVL17:
+ 252              	.LBB58:
+ 253              	.LBI58:
+ 254              		.file 4 "Core/Inc/actuator/motor.h"
+   1:Core/Inc/actuator/motor.h **** #pragma once
+   2:Core/Inc/actuator/motor.h **** #ifndef _MOTOR_H_
+   3:Core/Inc/actuator/motor.h **** #define _MOTOR_H_
+   4:Core/Inc/actuator/motor.h **** #include"actuators/motor_driver_param.h"
+   5:Core/Inc/actuator/motor.h **** #include"main.h"
+   6:Core/Inc/actuator/motor.h **** enum Direction
+   7:Core/Inc/actuator/motor.h **** {
+   8:Core/Inc/actuator/motor.h **** 	CLOCKWISE,
+   9:Core/Inc/actuator/motor.h **** 	ANTICLOCKWISE,
+  10:Core/Inc/actuator/motor.h **** 	STOP
+  11:Core/Inc/actuator/motor.h **** };
+  12:Core/Inc/actuator/motor.h **** struct Motor_config
+  13:Core/Inc/actuator/motor.h **** {
+  14:Core/Inc/actuator/motor.h **** 	GPIO_TypeDef *in1_port;
+  15:Core/Inc/actuator/motor.h **** 	uint16_t in1_pin;
+  16:Core/Inc/actuator/motor.h **** 	GPIO_TypeDef *in2_port;
+  17:Core/Inc/actuator/motor.h **** 	uint16_t in2_pin;
+  18:Core/Inc/actuator/motor.h **** 	TIM_HandleTypeDef *htim; // PWM Generating Timer
+  19:Core/Inc/actuator/motor.h **** 	uint32_t channel;			 // PWM Channel
+  20:Core/Inc/actuator/motor.h **** };
+  21:Core/Inc/actuator/motor.h **** 
+  22:Core/Inc/actuator/motor.h **** class motor
+  23:Core/Inc/actuator/motor.h **** {
+  24:Core/Inc/actuator/motor.h **** public:
+  25:Core/Inc/actuator/motor.h **** 	motor() 
+  26:Core/Inc/actuator/motor.h **** 	{ 
+  27:Core/Inc/actuator/motor.h **** 	  motor_ = 0;
+  28:Core/Inc/actuator/motor.h **** 	}
+  29:Core/Inc/actuator/motor.h **** 	motor(Motor_config *Motor_config_) { motor_ = Motor_config_; }
+  30:Core/Inc/actuator/motor.h **** 	motor(motor &&) = default;
+  31:Core/Inc/actuator/motor.h **** 	motor(const motor &) = default;
+  32:Core/Inc/actuator/motor.h **** 	motor &operator=(motor &&) = default;
+  33:Core/Inc/actuator/motor.h **** 	motor &operator=(const motor &) = default;
+  34:Core/Inc/actuator/motor.h **** 	~motor() {}
+ 255              		.loc 4 34 2 is_stmt 1 discriminator 3 view .LVU62
+ 256              	.L12:
+ 257              		.loc 4 34 2 is_stmt 0 discriminator 3 view .LVU63
+ 258              	.LBE58:
+ 259              		.loc 3 6 7 discriminator 4 view .LVU64
+ 260 0006 034A     		ldr	r2, .L14+4
+ 261 0008 9342     		cmp	r3, r2
+ 262 000a FBD1     		bne	.L13
+ 263              		.loc 3 6 7 view .LVU65
+ 264 000c 7047     		bx	lr
+ 265              	.L15:
+ 266 000e 00BF     		.align	2
+ 267              	.L14:
+ 268 0010 40000000 		.word	.LANCHOR0+64
+ 269 0014 00000000 		.word	.LANCHOR0
+ 270              		.cfi_endproc
+ 271              	.LFE190:
+ 273              		.section	.text.__tcf_1,"ax",%progbits
+ARM GAS  /tmp/cc7wK8fc.s 			page 8
+
+
+ 274              		.align	1
+ 275              		.syntax unified
+ 276              		.thumb
+ 277              		.thumb_func
+ 278              		.fpu fpv4-sp-d16
+ 280              	__tcf_1:
+ 281              	.LFB191:
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 282              		.loc 3 7 9 is_stmt 1 view -0
+ 283              		.cfi_startproc
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287              		.loc 3 7 9 is_stmt 0 view .LVU67
+ 288 0000 034B     		ldr	r3, .L20
+ 289 0002 00E0     		b	.L18
+ 290              	.L19:
+ 291              		.loc 3 7 9 discriminator 3 view .LVU68
+ 292 0004 083B     		subs	r3, r3, #8
+ 293              	.LVL18:
+ 294              	.LBB59:
+ 295              	.LBI59:
+ 296              		.file 5 "Core/Inc/actuator/encoder.h"
+   1:Core/Inc/actuator/encoder.h **** #ifndef _ENCODER_H_
+   2:Core/Inc/actuator/encoder.h **** #define _ENCODER_H_
+   3:Core/Inc/actuator/encoder.h **** #include"tim.h"
+   4:Core/Inc/actuator/encoder.h **** #include"gpio.h"
+   5:Core/Inc/actuator/encoder.h **** class encoder
+   6:Core/Inc/actuator/encoder.h **** {
+   7:Core/Inc/actuator/encoder.h **** private:
+   8:Core/Inc/actuator/encoder.h ****     TIM_HandleTypeDef *henc;
+   9:Core/Inc/actuator/encoder.h ****     int16_t count;
+  10:Core/Inc/actuator/encoder.h **** public:
+  11:Core/Inc/actuator/encoder.h ****     encoder() 
+  12:Core/Inc/actuator/encoder.h ****     {  
+  13:Core/Inc/actuator/encoder.h ****         count=0;
+  14:Core/Inc/actuator/encoder.h ****     }
+  15:Core/Inc/actuator/encoder.h ****     encoder(encoder &&) = default;
+  16:Core/Inc/actuator/encoder.h ****     encoder(const encoder &) = default;
+  17:Core/Inc/actuator/encoder.h ****     encoder &operator=(encoder &&) = default;
+  18:Core/Inc/actuator/encoder.h ****     encoder &operator=(const encoder &) = default;
+  19:Core/Inc/actuator/encoder.h ****     ~encoder() {}
+ 297              		.loc 5 19 5 is_stmt 1 discriminator 3 view .LVU69
+ 298              	.L18:
+ 299              		.loc 5 19 5 is_stmt 0 discriminator 3 view .LVU70
+ 300              	.LBE59:
+ 301              		.loc 3 7 9 discriminator 4 view .LVU71
+ 302 0006 034A     		ldr	r2, .L20+4
+ 303 0008 9342     		cmp	r3, r2
+ 304 000a FBD1     		bne	.L19
+ 305              		.loc 3 7 9 view .LVU72
+ 306 000c 7047     		bx	lr
+ 307              	.L21:
+ 308 000e 00BF     		.align	2
+ 309              	.L20:
+ 310 0010 20000000 		.word	.LANCHOR1+32
+ 311 0014 00000000 		.word	.LANCHOR1
+ARM GAS  /tmp/cc7wK8fc.s 			page 9
+
+
+ 312              		.cfi_endproc
+ 313              	.LFE191:
+ 315              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 316              		.align	1
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu fpv4-sp-d16
+ 322              	_Z41__static_initialization_and_destruction_0ii:
+ 323              	.LVL19:
+ 324              	.LFB189:
+   8:Core/Src/robot/robo_init.cpp **** void robo_init()
+   9:Core/Src/robot/robo_init.cpp **** {
+  10:Core/Src/robot/robo_init.cpp **** 	motorAllInitilize();
+  11:Core/Src/robot/robo_init.cpp **** 	encoderAllInitilize();
+  12:Core/Src/robot/robo_init.cpp **** 	freeWheelAllInitilize();
+  13:Core/Src/robot/robo_init.cpp **** }
+  14:Core/Src/robot/robo_init.cpp **** void motorAllInitilize()
+  15:Core/Src/robot/robo_init.cpp **** {
+  16:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
+  17:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
+  18:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
+  19:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
+  20:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
+  21:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
+  22:Core/Src/robot/robo_init.cpp **** 
+  23:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
+  24:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
+  25:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
+  26:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
+  27:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
+  28:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
+  29:Core/Src/robot/robo_init.cpp **** 
+  30:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
+  31:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
+  32:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
+  33:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
+  34:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
+  35:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
+  36:Core/Src/robot/robo_init.cpp **** 
+  37:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
+  38:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
+  39:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
+  40:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
+  41:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
+  42:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
+  43:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
+  44:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
+  45:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
+  46:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
+  47:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
+  48:Core/Src/robot/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+  49:Core/Src/robot/robo_init.cpp **** 	{
+  50:Core/Src/robot/robo_init.cpp **** 		motor_[i].set_config(&motor_configurations[i]);
+  51:Core/Src/robot/robo_init.cpp **** 	}
+  52:Core/Src/robot/robo_init.cpp **** }
+  53:Core/Src/robot/robo_init.cpp **** void encoderAllInitilize()
+ARM GAS  /tmp/cc7wK8fc.s 			page 10
+
+
+  54:Core/Src/robot/robo_init.cpp **** {    //set all handles for all motors
+  55:Core/Src/robot/robo_init.cpp **** 	encoder_[0].set_TimerHandle(&htim1);
+  56:Core/Src/robot/robo_init.cpp **** 	encoder_[1].set_TimerHandle(&htim2);
+  57:Core/Src/robot/robo_init.cpp **** 	encoder_[2].set_TimerHandle(&htim3);
+  58:Core/Src/robot/robo_init.cpp **** 	encoder_[3].set_TimerHandle(&htim4);
+  59:Core/Src/robot/robo_init.cpp **** 
+  60:Core/Src/robot/robo_init.cpp ****     HAL_TIM_Encoder_Start(encoder_[0].get_TimerHandle(), TIM_CHANNEL_ALL);
+  61:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[1].get_TimerHandle(), TIM_CHANNEL_ALL);
+  62:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[2].get_TimerHandle(), TIM_CHANNEL_ALL);
+  63:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[3].get_TimerHandle(), TIM_CHANNEL_ALL);
+  64:Core/Src/robot/robo_init.cpp **** 
+  65:Core/Src/robot/robo_init.cpp **** }
+  66:Core/Src/robot/robo_init.cpp **** void freeWheelAllInitilize()
+  67:Core/Src/robot/robo_init.cpp **** {
+  68:Core/Src/robot/robo_init.cpp **** 	ex_config.id='x';
+  69:Core/Src/robot/robo_init.cpp **** 	ex_config.port = GPIOC;
+  70:Core/Src/robot/robo_init.cpp **** 	ex_config.pin = GPIO_PIN_5;
+  71:Core/Src/robot/robo_init.cpp **** 	ex_config.ppr=200;
+  72:Core/Src/robot/robo_init.cpp **** 	ex_config.radius=0.0294;
+  73:Core/Src/robot/robo_init.cpp **** 
+  74:Core/Src/robot/robo_init.cpp **** 	ey_config.id='y';
+  75:Core/Src/robot/robo_init.cpp **** 	ey_config.port = GPIOC;
+  76:Core/Src/robot/robo_init.cpp **** 	ey_config.pin = GPIO_PIN_4;
+  77:Core/Src/robot/robo_init.cpp **** 	ey_config.ppr=200;
+  78:Core/Src/robot/robo_init.cpp **** 	ey_config.radius=0.0294;
+  79:Core/Src/robot/robo_init.cpp **** 
+  80:Core/Src/robot/robo_init.cpp **** 	ex.set_config(&ex_config);
+  81:Core/Src/robot/robo_init.cpp **** 	ey.set_config(&ey_config);
+  82:Core/Src/robot/robo_init.cpp **** 
+  83:Core/Src/robot/robo_init.cpp **** 
+  84:Core/Src/robot/robo_init.cpp **** }...
+ 325              		.loc 3 84 1 is_stmt 1 view -0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		.loc 3 84 1 is_stmt 0 view .LVU74
+ 330 0000 0128     		cmp	r0, #1
+ 331 0002 00D0     		beq	.L32
+ 332 0004 7047     		bx	lr
+ 333              	.L32:
+ 334              		.loc 3 84 1 discriminator 1 view .LVU75
+ 335 0006 38B5     		push	{r3, r4, r5, lr}
+ 336              	.LCFI0:
+ 337              		.cfi_def_cfa_offset 16
+ 338              		.cfi_offset 3, -16
+ 339              		.cfi_offset 4, -12
+ 340              		.cfi_offset 5, -8
+ 341              		.cfi_offset 14, -4
+ 342              		.loc 3 84 1 discriminator 1 view .LVU76
+ 343 0008 4FF6FF73 		movw	r3, #65535
+ 344 000c 9942     		cmp	r1, r3
+ 345 000e 00D0     		beq	.L33
+ 346              	.LVL20:
+ 347              	.L22:
+ 348              		.loc 3 84 1 view .LVU77
+ 349 0010 38BD     		pop	{r3, r4, r5, pc}
+ 350              	.LVL21:
+ARM GAS  /tmp/cc7wK8fc.s 			page 11
+
+
+ 351              	.L33:
+ 352              	.LBB60:
+ 353              	.LBI60:
+  20:Core/Inc/actuator/free_wheel.h ****     {  config=new free_wheel_config;
+ 354              		.loc 2 20 5 is_stmt 1 view .LVU78
+ 355              	.LBB61:
+ 356              	.LBB62:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 357              		.loc 2 21 8 view .LVU79
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 358              		.loc 2 21 19 is_stmt 0 view .LVU80
+ 359 0012 1820     		movs	r0, #24
+ 360              	.LVL22:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 361              		.loc 2 21 19 view .LVU81
+ 362 0014 FFF7FEFF 		bl	_Znwj
+ 363              	.LVL23:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 364              		.loc 2 21 14 view .LVU82
+ 365 0018 1B4B     		ldr	r3, .L34
+ 366 001a 1860     		str	r0, [r3]
+ 367              	.LVL24:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 368              		.loc 2 21 14 view .LVU83
+ 369              	.LBE62:
+ 370              	.LBE61:
+ 371              	.LBE60:
+   5:Core/Src/robot/robo_init.cpp **** free_wheel ex,ey;
+ 372              		.loc 3 5 12 view .LVU84
+ 373 001c 1B4D     		ldr	r5, .L34+4
+ 374 001e 1C4C     		ldr	r4, .L34+8
+ 375 0020 2A46     		mov	r2, r5
+ 376 0022 2146     		mov	r1, r4
+ 377 0024 1846     		mov	r0, r3
+ 378 0026 FFF7FEFF 		bl	__aeabi_atexit
+ 379              	.LVL25:
+ 380              	.LBB63:
+ 381              	.LBI63:
+  20:Core/Inc/actuator/free_wheel.h ****     {  config=new free_wheel_config;
+ 382              		.loc 2 20 5 is_stmt 1 view .LVU85
+ 383              	.LBB64:
+ 384              	.LBB65:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 385              		.loc 2 21 8 view .LVU86
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 386              		.loc 2 21 19 is_stmt 0 view .LVU87
+ 387 002a 1820     		movs	r0, #24
+ 388 002c FFF7FEFF 		bl	_Znwj
+ 389              	.LVL26:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 390              		.loc 2 21 14 view .LVU88
+ 391 0030 184B     		ldr	r3, .L34+12
+ 392 0032 1860     		str	r0, [r3]
+ 393              	.LVL27:
+  21:Core/Inc/actuator/free_wheel.h ****     }
+ 394              		.loc 2 21 14 view .LVU89
+ 395              	.LBE65:
+ARM GAS  /tmp/cc7wK8fc.s 			page 12
+
+
+ 396              	.LBE64:
+ 397              	.LBE63:
+   5:Core/Src/robot/robo_init.cpp **** free_wheel ex,ey;
+ 398              		.loc 3 5 15 view .LVU90
+ 399 0034 2A46     		mov	r2, r5
+ 400 0036 2146     		mov	r1, r4
+ 401 0038 1846     		mov	r0, r3
+ 402 003a FFF7FEFF 		bl	__aeabi_atexit
+ 403              	.LVL28:
+   6:Core/Src/robot/robo_init.cpp **** motor motor_[4];
+ 404              		.loc 3 6 15 view .LVU91
+ 405 003e 0321     		movs	r1, #3
+ 406 0040 154B     		ldr	r3, .L34+16
+ 407              	.L25:
+   6:Core/Src/robot/robo_init.cpp **** motor motor_[4];
+ 408              		.loc 3 6 15 is_stmt 1 discriminator 4 view .LVU92
+ 409 0042 0029     		cmp	r1, #0
+ 410 0044 0CDB     		blt	.L24
+ 411              	.LVL29:
+ 412              	.LBB66:
+ 413              	.LBI66:
+  25:Core/Inc/actuator/motor.h **** 	{ 
+ 414              		.loc 4 25 2 view .LVU93
+ 415              	.LBB67:
+ 416              	.LBB68:
+ 417              	.LBI68:
+  24:Core/Inc/ros/actuators/motor_driver_param.h ****       id(0),
+ 418              		.loc 1 24 5 view .LVU94
+ 419              	.LBB69:
+ 420              	.LBB70:
+ 421              	.LBI70:
+ 422              		.file 6 "Core/Inc/ros/ros/msg.h"
+   1:Core/Inc/ros/ros/msg.h **** /*
+   2:Core/Inc/ros/ros/msg.h ****  * Software License Agreement (BSD License)
+   3:Core/Inc/ros/ros/msg.h ****  *
+   4:Core/Inc/ros/ros/msg.h ****  * Copyright (c) 2011, Willow Garage, Inc.
+   5:Core/Inc/ros/ros/msg.h ****  * All rights reserved.
+   6:Core/Inc/ros/ros/msg.h ****  *
+   7:Core/Inc/ros/ros/msg.h ****  * Redistribution and use in source and binary forms, with or without
+   8:Core/Inc/ros/ros/msg.h ****  * modification, are permitted provided that the following conditions
+   9:Core/Inc/ros/ros/msg.h ****  * are met:
+  10:Core/Inc/ros/ros/msg.h ****  *
+  11:Core/Inc/ros/ros/msg.h ****  *  * Redistributions of source code must retain the above copyright
+  12:Core/Inc/ros/ros/msg.h ****  *    notice, this list of conditions and the following disclaimer.
+  13:Core/Inc/ros/ros/msg.h ****  *  * Redistributions in binary form must reproduce the above
+  14:Core/Inc/ros/ros/msg.h ****  *    copyright notice, this list of conditions and the following
+  15:Core/Inc/ros/ros/msg.h ****  *    disclaimer in the documentation and/or other materials provided
+  16:Core/Inc/ros/ros/msg.h ****  *    with the distribution.
+  17:Core/Inc/ros/ros/msg.h ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
+  18:Core/Inc/ros/ros/msg.h ****  *    contributors may be used to endorse or promote prducts derived
+  19:Core/Inc/ros/ros/msg.h ****  *    from this software without specific prior written permission.
+  20:Core/Inc/ros/ros/msg.h ****  *
+  21:Core/Inc/ros/ros/msg.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  22:Core/Inc/ros/ros/msg.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  23:Core/Inc/ros/ros/msg.h ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  24:Core/Inc/ros/ros/msg.h ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  25:Core/Inc/ros/ros/msg.h ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ARM GAS  /tmp/cc7wK8fc.s 			page 13
+
+
+  26:Core/Inc/ros/ros/msg.h ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  27:Core/Inc/ros/ros/msg.h ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  28:Core/Inc/ros/ros/msg.h ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  29:Core/Inc/ros/ros/msg.h ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  30:Core/Inc/ros/ros/msg.h ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  31:Core/Inc/ros/ros/msg.h ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:Core/Inc/ros/ros/msg.h ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:Core/Inc/ros/ros/msg.h ****  */
+  34:Core/Inc/ros/ros/msg.h **** 
+  35:Core/Inc/ros/ros/msg.h **** #ifndef _ROS_MSG_H_
+  36:Core/Inc/ros/ros/msg.h **** #define _ROS_MSG_H_
+  37:Core/Inc/ros/ros/msg.h **** 
+  38:Core/Inc/ros/ros/msg.h **** #include <stdint.h>
+  39:Core/Inc/ros/ros/msg.h **** #include <stddef.h>
+  40:Core/Inc/ros/ros/msg.h **** #include <cstring>
+  41:Core/Inc/ros/ros/msg.h **** 
+  42:Core/Inc/ros/ros/msg.h **** namespace ros
+  43:Core/Inc/ros/ros/msg.h **** {
+  44:Core/Inc/ros/ros/msg.h **** 
+  45:Core/Inc/ros/ros/msg.h **** /* Base Message Type */
+  46:Core/Inc/ros/ros/msg.h **** class Msg
+ 423              		.loc 6 46 7 view .LVU95
+ 424              	.LBB71:
+ 425 0046 154A     		ldr	r2, .L34+20
+ 426 0048 5A60     		str	r2, [r3, #4]
+ 427              	.LVL30:
+ 428              		.loc 6 46 7 is_stmt 0 view .LVU96
+ 429              	.LBE71:
+ 430              	.LBE70:
+  28:Core/Inc/ros/actuators/motor_driver_param.h ****     {
+ 431              		.loc 1 28 12 view .LVU97
+ 432 004a 154A     		ldr	r2, .L34+24
+ 433 004c 5A60     		str	r2, [r3, #4]
+ 434 004e 0022     		movs	r2, #0
+ 435 0050 1A72     		strb	r2, [r3, #8]
+ 436 0052 5A72     		strb	r2, [r3, #9]
+ 437 0054 9A72     		strb	r2, [r3, #10]
+ 438 0056 9A81     		strh	r2, [r3, #12]	@ movhi
+ 439              	.LVL31:
+  28:Core/Inc/ros/actuators/motor_driver_param.h ****     {
+ 440              		.loc 1 28 12 view .LVU98
+ 441              	.LBE69:
+ 442              	.LBE68:
+  27:Core/Inc/actuator/motor.h **** 	}
+ 443              		.loc 4 27 4 is_stmt 1 view .LVU99
+  27:Core/Inc/actuator/motor.h **** 	}
+ 444              		.loc 4 27 11 is_stmt 0 view .LVU100
+ 445 0058 43F8102B 		str	r2, [r3], #16
+ 446              	.LVL32:
+  27:Core/Inc/actuator/motor.h **** 	}
+ 447              		.loc 4 27 11 view .LVU101
+ 448              	.LBE67:
+ 449              	.LBE66:
+   6:Core/Src/robot/robo_init.cpp **** motor motor_[4];
+ 450              		.loc 3 6 15 is_stmt 1 view .LVU102
+ 451 005c 0139     		subs	r1, r1, #1
+ 452 005e F0E7     		b	.L25
+ARM GAS  /tmp/cc7wK8fc.s 			page 14
+
+
+ 453              	.L24:
+   6:Core/Src/robot/robo_init.cpp **** motor motor_[4];
+ 454              		.loc 3 6 7 is_stmt 0 discriminator 2 view .LVU103
+ 455 0060 0A4A     		ldr	r2, .L34+4
+ 456 0062 1049     		ldr	r1, .L34+28
+ 457 0064 0020     		movs	r0, #0
+ 458 0066 FFF7FEFF 		bl	__aeabi_atexit
+ 459              	.LVL33:
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 460              		.loc 3 7 19 discriminator 2 view .LVU104
+ 461 006a 0323     		movs	r3, #3
+ 462 006c 0E4A     		ldr	r2, .L34+32
+ 463              	.L27:
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 464              		.loc 3 7 19 is_stmt 1 discriminator 4 view .LVU105
+ 465 006e 002B     		cmp	r3, #0
+ 466 0070 04DB     		blt	.L26
+ 467              	.LVL34:
+ 468              	.LBB72:
+ 469              	.LBI72:
+  11:Core/Inc/actuator/encoder.h ****     {  
+ 470              		.loc 5 11 5 view .LVU106
+ 471              	.LBB73:
+  13:Core/Inc/actuator/encoder.h ****     }
+ 472              		.loc 5 13 9 view .LVU107
+  13:Core/Inc/actuator/encoder.h ****     }
+ 473              		.loc 5 13 14 is_stmt 0 view .LVU108
+ 474 0072 0021     		movs	r1, #0
+ 475 0074 9180     		strh	r1, [r2, #4]	@ movhi
+ 476              	.LVL35:
+  13:Core/Inc/actuator/encoder.h ****     }
+ 477              		.loc 5 13 14 view .LVU109
+ 478              	.LBE73:
+ 479              	.LBE72:
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 480              		.loc 3 7 19 view .LVU110
+ 481 0076 0832     		adds	r2, r2, #8
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 482              		.loc 3 7 19 is_stmt 1 view .LVU111
+ 483 0078 013B     		subs	r3, r3, #1
+ 484 007a F8E7     		b	.L27
+ 485              	.L26:
+   7:Core/Src/robot/robo_init.cpp **** encoder encoder_[4];
+ 486              		.loc 3 7 9 is_stmt 0 discriminator 2 view .LVU112
+ 487 007c 034A     		ldr	r2, .L34+4
+ 488 007e 0B49     		ldr	r1, .L34+36
+ 489 0080 0020     		movs	r0, #0
+ 490 0082 FFF7FEFF 		bl	__aeabi_atexit
+ 491              	.LVL36:
+ 492              		.loc 3 84 1 discriminator 2 view .LVU113
+ 493 0086 C3E7     		b	.L22
+ 494              	.L35:
+ 495              		.align	2
+ 496              	.L34:
+ 497 0088 00000000 		.word	.LANCHOR2
+ 498 008c 00000000 		.word	__dso_handle
+ 499 0090 00000000 		.word	_ZN10free_wheelD1Ev
+ARM GAS  /tmp/cc7wK8fc.s 			page 15
+
+
+ 500 0094 00000000 		.word	.LANCHOR3
+ 501 0098 00000000 		.word	.LANCHOR0
+ 502 009c 08000000 		.word	_ZTVN3ros3MsgE+8
+ 503 00a0 08000000 		.word	_ZTVN9actuators18motor_driver_paramE+8
+ 504 00a4 00000000 		.word	__tcf_0
+ 505 00a8 00000000 		.word	.LANCHOR1
+ 506 00ac 00000000 		.word	__tcf_1
+ 507              		.cfi_endproc
+ 508              	.LFE189:
+ 510              		.section	.text._Z17motorAllInitilizev,"ax",%progbits
+ 511              		.align	1
+ 512              		.global	_Z17motorAllInitilizev
+ 513              		.syntax unified
+ 514              		.thumb
+ 515              		.thumb_func
+ 516              		.fpu fpv4-sp-d16
+ 518              	_Z17motorAllInitilizev:
+ 519              	.LFB186:
+  15:Core/Src/robot/robo_init.cpp **** {
+ 520              		.loc 3 15 1 is_stmt 1 view -0
+ 521              		.cfi_startproc
+ 522              		@ args = 0, pretend = 0, frame = 0
+ 523              		@ frame_needed = 0, uses_anonymous_args = 0
+ 524 0000 70B5     		push	{r4, r5, r6, lr}
+ 525              	.LCFI1:
+ 526              		.cfi_def_cfa_offset 16
+ 527              		.cfi_offset 4, -16
+ 528              		.cfi_offset 5, -12
+ 529              		.cfi_offset 6, -8
+ 530              		.cfi_offset 14, -4
+  16:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
+ 531              		.loc 3 16 2 view .LVU115
+  16:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].htim = &htim8;
+ 532              		.loc 3 16 31 is_stmt 0 view .LVU116
+ 533 0002 274C     		ldr	r4, .L41
+ 534 0004 2748     		ldr	r0, .L41+4
+ 535 0006 2061     		str	r0, [r4, #16]
+  17:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
+ 536              		.loc 3 17 2 is_stmt 1 view .LVU117
+  17:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_port = GPIOD;
+ 537              		.loc 3 17 35 is_stmt 0 view .LVU118
+ 538 0008 274E     		ldr	r6, .L41+8
+ 539 000a 2660     		str	r6, [r4]
+  18:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
+ 540              		.loc 3 18 2 is_stmt 1 view .LVU119
+  18:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in1_pin = GPIO_PIN_0;
+ 541              		.loc 3 18 34 is_stmt 0 view .LVU120
+ 542 000c 0123     		movs	r3, #1
+ 543 000e A380     		strh	r3, [r4, #4]	@ movhi
+  19:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
+ 544              		.loc 3 19 2 is_stmt 1 view .LVU121
+  19:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_port = GPIOE;
+ 545              		.loc 3 19 35 is_stmt 0 view .LVU122
+ 546 0010 264B     		ldr	r3, .L41+12
+ 547 0012 A360     		str	r3, [r4, #8]
+  20:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
+ 548              		.loc 3 20 2 is_stmt 1 view .LVU123
+ARM GAS  /tmp/cc7wK8fc.s 			page 16
+
+
+  20:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].in2_pin = GPIO_PIN_5;
+ 549              		.loc 3 20 34 is_stmt 0 view .LVU124
+ 550 0014 2022     		movs	r2, #32
+ 551 0016 A281     		strh	r2, [r4, #12]	@ movhi
+  21:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
+ 552              		.loc 3 21 2 is_stmt 1 view .LVU125
+  21:Core/Src/robot/robo_init.cpp **** 	motor_configurations[0].channel = TIM_CHANNEL_1;
+ 553              		.loc 3 21 34 is_stmt 0 view .LVU126
+ 554 0018 0025     		movs	r5, #0
+ 555 001a 6561     		str	r5, [r4, #20]
+  23:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
+ 556              		.loc 3 23 2 is_stmt 1 view .LVU127
+  23:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].htim = &htim8;
+ 557              		.loc 3 23 31 is_stmt 0 view .LVU128
+ 558 001c A062     		str	r0, [r4, #40]
+  24:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
+ 559              		.loc 3 24 2 is_stmt 1 view .LVU129
+  24:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_port = GPIOA;
+ 560              		.loc 3 24 35 is_stmt 0 view .LVU130
+ 561 001e 2449     		ldr	r1, .L41+16
+ 562 0020 A161     		str	r1, [r4, #24]
+  25:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
+ 563              		.loc 3 25 2 is_stmt 1 view .LVU131
+  25:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in1_pin = GPIO_PIN_10;
+ 564              		.loc 3 25 34 is_stmt 0 view .LVU132
+ 565 0022 4FF48061 		mov	r1, #1024
+ 566 0026 A183     		strh	r1, [r4, #28]	@ movhi
+  26:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
+ 567              		.loc 3 26 2 is_stmt 1 view .LVU133
+  26:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_port = GPIOB;
+ 568              		.loc 3 26 35 is_stmt 0 view .LVU134
+ 569 0028 01F18041 		add	r1, r1, #1073741824
+ 570 002c 01F50031 		add	r1, r1, #131072
+ 571 0030 2162     		str	r1, [r4, #32]
+  27:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
+ 572              		.loc 3 27 2 is_stmt 1 view .LVU135
+  27:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].in2_pin = GPIO_PIN_5;
+ 573              		.loc 3 27 34 is_stmt 0 view .LVU136
+ 574 0032 A284     		strh	r2, [r4, #36]	@ movhi
+  28:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
+ 575              		.loc 3 28 2 is_stmt 1 view .LVU137
+  28:Core/Src/robot/robo_init.cpp **** 	motor_configurations[1].channel = TIM_CHANNEL_2;
+ 576              		.loc 3 28 34 is_stmt 0 view .LVU138
+ 577 0034 0421     		movs	r1, #4
+ 578 0036 E162     		str	r1, [r4, #44]
+  30:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
+ 579              		.loc 3 30 2 is_stmt 1 view .LVU139
+  30:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].htim = &htim8;
+ 580              		.loc 3 30 31 is_stmt 0 view .LVU140
+ 581 0038 2064     		str	r0, [r4, #64]
+  31:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
+ 582              		.loc 3 31 2 is_stmt 1 view .LVU141
+  31:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_port = GPIOE;
+ 583              		.loc 3 31 35 is_stmt 0 view .LVU142
+ 584 003a 2363     		str	r3, [r4, #48]
+  32:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
+ 585              		.loc 3 32 2 is_stmt 1 view .LVU143
+ARM GAS  /tmp/cc7wK8fc.s 			page 17
+
+
+  32:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in1_pin = GPIO_PIN_3;
+ 586              		.loc 3 32 34 is_stmt 0 view .LVU144
+ 587 003c 0822     		movs	r2, #8
+ 588 003e A286     		strh	r2, [r4, #52]	@ movhi
+  33:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
+ 589              		.loc 3 33 2 is_stmt 1 view .LVU145
+  33:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_port = GPIOD;
+ 590              		.loc 3 33 35 is_stmt 0 view .LVU146
+ 591 0040 A663     		str	r6, [r4, #56]
+  34:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
+ 592              		.loc 3 34 2 is_stmt 1 view .LVU147
+  34:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].in2_pin = GPIO_PIN_2;
+ 593              		.loc 3 34 34 is_stmt 0 view .LVU148
+ 594 0042 A187     		strh	r1, [r4, #60]	@ movhi
+  35:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
+ 595              		.loc 3 35 2 is_stmt 1 view .LVU149
+  35:Core/Src/robot/robo_init.cpp **** 	motor_configurations[2].channel = TIM_CHANNEL_3;
+ 596              		.loc 3 35 34 is_stmt 0 view .LVU150
+ 597 0044 6264     		str	r2, [r4, #68]
+  37:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
+ 598              		.loc 3 37 2 is_stmt 1 view .LVU151
+  37:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].htim = &htim8;
+ 599              		.loc 3 37 31 is_stmt 0 view .LVU152
+ 600 0046 A065     		str	r0, [r4, #88]
+  38:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
+ 601              		.loc 3 38 2 is_stmt 1 view .LVU153
+  38:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_port = GPIOC;
+ 602              		.loc 3 38 35 is_stmt 0 view .LVU154
+ 603 0048 1A4A     		ldr	r2, .L41+20
+ 604 004a A264     		str	r2, [r4, #72]
+  39:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
+ 605              		.loc 3 39 2 is_stmt 1 view .LVU155
+  39:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in1_pin = GPIO_PIN_13;
+ 606              		.loc 3 39 34 is_stmt 0 view .LVU156
+ 607 004c 4FF40052 		mov	r2, #8192
+ 608 0050 A4F84C20 		strh	r2, [r4, #76]	@ movhi
+  40:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
+ 609              		.loc 3 40 2 is_stmt 1 view .LVU157
+  40:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_port = GPIOE;
+ 610              		.loc 3 40 35 is_stmt 0 view .LVU158
+ 611 0054 2365     		str	r3, [r4, #80]
+  41:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
+ 612              		.loc 3 41 2 is_stmt 1 view .LVU159
+  41:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].in2_pin = GPIO_PIN_1;
+ 613              		.loc 3 41 34 is_stmt 0 view .LVU160
+ 614 0056 0223     		movs	r3, #2
+ 615 0058 A4F85430 		strh	r3, [r4, #84]	@ movhi
+  42:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
+ 616              		.loc 3 42 2 is_stmt 1 view .LVU161
+  42:Core/Src/robot/robo_init.cpp **** 	motor_configurations[3].channel = TIM_CHANNEL_4;
+ 617              		.loc 3 42 34 is_stmt 0 view .LVU162
+ 618 005c 0C23     		movs	r3, #12
+ 619 005e E365     		str	r3, [r4, #92]
+  43:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
+ 620              		.loc 3 43 2 is_stmt 1 view .LVU163
+  43:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Base_Start(&htim8);
+ 621              		.loc 3 43 20 is_stmt 0 view .LVU164
+ARM GAS  /tmp/cc7wK8fc.s 			page 18
+
+
+ 622 0060 FFF7FEFF 		bl	HAL_TIM_Base_Start
+ 623              	.LVL37:
+  44:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
+ 624              		.loc 3 44 2 is_stmt 1 view .LVU165
+  44:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[0].htim, motor_configurations[0].channel);
+ 625              		.loc 3 44 19 is_stmt 0 view .LVU166
+ 626 0064 6169     		ldr	r1, [r4, #20]
+ 627 0066 2069     		ldr	r0, [r4, #16]
+ 628 0068 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 629              	.LVL38:
+  45:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
+ 630              		.loc 3 45 2 is_stmt 1 view .LVU167
+  45:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[1].htim, motor_configurations[1].channel);
+ 631              		.loc 3 45 19 is_stmt 0 view .LVU168
+ 632 006c E16A     		ldr	r1, [r4, #44]
+ 633 006e A06A     		ldr	r0, [r4, #40]
+ 634 0070 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 635              	.LVL39:
+  46:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
+ 636              		.loc 3 46 2 is_stmt 1 view .LVU169
+  46:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[2].htim, motor_configurations[2].channel);
+ 637              		.loc 3 46 19 is_stmt 0 view .LVU170
+ 638 0074 616C     		ldr	r1, [r4, #68]
+ 639 0076 206C     		ldr	r0, [r4, #64]
+ 640 0078 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 641              	.LVL40:
+  47:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
+ 642              		.loc 3 47 2 is_stmt 1 view .LVU171
+  47:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_PWM_Start(motor_configurations[3].htim, motor_configurations[3].channel);
+ 643              		.loc 3 47 19 is_stmt 0 view .LVU172
+ 644 007c E16D     		ldr	r1, [r4, #92]
+ 645 007e A06D     		ldr	r0, [r4, #88]
+ 646 0080 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 647              	.LVL41:
+  48:Core/Src/robot/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 648              		.loc 3 48 2 is_stmt 1 view .LVU173
+ 649              	.LBB74:
+  48:Core/Src/robot/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 650              		.loc 3 48 11 is_stmt 0 view .LVU174
+ 651 0084 2B46     		mov	r3, r5
+ 652 0086 08E0     		b	.L38
+ 653              	.LVL42:
+ 654              	.L40:
+  50:Core/Src/robot/robo_init.cpp **** 		motor_[i].set_config(&motor_configurations[i]);
+ 655              		.loc 3 50 3 is_stmt 1 discriminator 2 view .LVU175
+  50:Core/Src/robot/robo_init.cpp **** 		motor_[i].set_config(&motor_configurations[i]);
+ 656              		.loc 3 50 23 is_stmt 0 discriminator 2 view .LVU176
+ 657 0088 03EB4302 		add	r2, r3, r3, lsl #1
+ 658 008c D100     		lsls	r1, r2, #3
+ 659 008e 044A     		ldr	r2, .L41
+ 660 0090 0A44     		add	r2, r2, r1
+ 661              	.LVL43:
+ 662              	.LBB75:
+ 663              	.LBI75:
+  35:Core/Inc/actuator/motor.h **** 	void set_config(Motor_config *Motor_config_) { motor_ = Motor_config_; }
+ 664              		.loc 4 35 7 is_stmt 1 discriminator 2 view .LVU177
+ 665              	.LBB76:
+ARM GAS  /tmp/cc7wK8fc.s 			page 19
+
+
+ 666              		.loc 4 35 49 discriminator 2 view .LVU178
+ 667              		.loc 4 35 56 is_stmt 0 discriminator 2 view .LVU179
+ 668 0092 1901     		lsls	r1, r3, #4
+ 669 0094 0848     		ldr	r0, .L41+24
+ 670 0096 4250     		str	r2, [r0, r1]
+ 671              	.LVL44:
+ 672              		.loc 4 35 56 discriminator 2 view .LVU180
+ 673              	.LBE76:
+ 674              	.LBE75:
+  48:Core/Src/robot/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 675              		.loc 3 48 2 is_stmt 1 discriminator 2 view .LVU181
+ 676 0098 0133     		adds	r3, r3, #1
+ 677              	.LVL45:
+ 678              	.L38:
+  48:Core/Src/robot/robo_init.cpp **** 	for (int i = 0; i < 4; i++)
+ 679              		.loc 3 48 20 discriminator 3 view .LVU182
+ 680 009a 032B     		cmp	r3, #3
+ 681 009c F4DD     		ble	.L40
+ 682              	.LBE74:
+  52:Core/Src/robot/robo_init.cpp **** }
+ 683              		.loc 3 52 1 is_stmt 0 view .LVU183
+ 684 009e 70BD     		pop	{r4, r5, r6, pc}
+ 685              	.L42:
+ 686              		.align	2
+ 687              	.L41:
+ 688 00a0 00000000 		.word	.LANCHOR4
+ 689 00a4 00000000 		.word	htim8
+ 690 00a8 000C0240 		.word	1073875968
+ 691 00ac 00100240 		.word	1073876992
+ 692 00b0 00000240 		.word	1073872896
+ 693 00b4 00080240 		.word	1073874944
+ 694 00b8 00000000 		.word	.LANCHOR0
+ 695              		.cfi_endproc
+ 696              	.LFE186:
+ 698              		.section	.text._Z19encoderAllInitilizev,"ax",%progbits
+ 699              		.align	1
+ 700              		.global	_Z19encoderAllInitilizev
+ 701              		.syntax unified
+ 702              		.thumb
+ 703              		.thumb_func
+ 704              		.fpu fpv4-sp-d16
+ 706              	_Z19encoderAllInitilizev:
+ 707              	.LFB187:
+  54:Core/Src/robot/robo_init.cpp **** {    //set all handles for all motors
+ 708              		.loc 3 54 1 is_stmt 1 view -0
+ 709              		.cfi_startproc
+ 710              		@ args = 0, pretend = 0, frame = 0
+ 711              		@ frame_needed = 0, uses_anonymous_args = 0
+ 712 0000 10B5     		push	{r4, lr}
+ 713              	.LCFI2:
+ 714              		.cfi_def_cfa_offset 8
+ 715              		.cfi_offset 4, -8
+ 716              		.cfi_offset 14, -4
+  55:Core/Src/robot/robo_init.cpp **** 	encoder_[0].set_TimerHandle(&htim1);
+ 717              		.loc 3 55 2 view .LVU185
+ 718              	.LVL46:
+ 719              	.LBB77:
+ARM GAS  /tmp/cc7wK8fc.s 			page 20
+
+
+ 720              	.LBI77:
+  20:Core/Inc/actuator/encoder.h ****     void set_TimerHandle(TIM_HandleTypeDef *henc_){henc=henc_;}
+ 721              		.loc 5 20 10 view .LVU186
+ 722              	.LBB78:
+ 723              		.loc 5 20 52 view .LVU187
+ 724              		.loc 5 20 56 is_stmt 0 view .LVU188
+ 725 0002 0C4C     		ldr	r4, .L45
+ 726 0004 0C48     		ldr	r0, .L45+4
+ 727 0006 2060     		str	r0, [r4]
+ 728              	.LVL47:
+ 729              		.loc 5 20 56 view .LVU189
+ 730              	.LBE78:
+ 731              	.LBE77:
+  56:Core/Src/robot/robo_init.cpp **** 	encoder_[1].set_TimerHandle(&htim2);
+ 732              		.loc 3 56 2 is_stmt 1 view .LVU190
+ 733              	.LBB79:
+ 734              	.LBI79:
+ 735              		.loc 5 20 10 view .LVU191
+ 736              	.LBB80:
+ 737              		.loc 5 20 52 view .LVU192
+ 738              		.loc 5 20 56 is_stmt 0 view .LVU193
+ 739 0008 0C4B     		ldr	r3, .L45+8
+ 740 000a A360     		str	r3, [r4, #8]
+ 741              	.LVL48:
+ 742              		.loc 5 20 56 view .LVU194
+ 743              	.LBE80:
+ 744              	.LBE79:
+  57:Core/Src/robot/robo_init.cpp **** 	encoder_[2].set_TimerHandle(&htim3);
+ 745              		.loc 3 57 2 is_stmt 1 view .LVU195
+ 746              	.LBB81:
+ 747              	.LBI81:
+ 748              		.loc 5 20 10 view .LVU196
+ 749              	.LBB82:
+ 750              		.loc 5 20 52 view .LVU197
+ 751              		.loc 5 20 56 is_stmt 0 view .LVU198
+ 752 000c 0C4B     		ldr	r3, .L45+12
+ 753 000e 2361     		str	r3, [r4, #16]
+ 754              	.LVL49:
+ 755              		.loc 5 20 56 view .LVU199
+ 756              	.LBE82:
+ 757              	.LBE81:
+  58:Core/Src/robot/robo_init.cpp **** 	encoder_[3].set_TimerHandle(&htim4);
+ 758              		.loc 3 58 2 is_stmt 1 view .LVU200
+ 759              	.LBB83:
+ 760              	.LBI83:
+ 761              		.loc 5 20 10 view .LVU201
+ 762              	.LBB84:
+ 763              		.loc 5 20 52 view .LVU202
+ 764              		.loc 5 20 56 is_stmt 0 view .LVU203
+ 765 0010 0C4B     		ldr	r3, .L45+16
+ 766 0012 A361     		str	r3, [r4, #24]
+ 767              	.LVL50:
+ 768              		.loc 5 20 56 view .LVU204
+ 769              	.LBE84:
+ 770              	.LBE83:
+  60:Core/Src/robot/robo_init.cpp ****     HAL_TIM_Encoder_Start(encoder_[0].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 771              		.loc 3 60 5 is_stmt 1 view .LVU205
+ARM GAS  /tmp/cc7wK8fc.s 			page 21
+
+
+  21:Core/Inc/actuator/encoder.h ****     TIM_HandleTypeDef* get_TimerHandle(){return henc;}
+ 772              		.loc 5 21 42 view .LVU206
+  60:Core/Src/robot/robo_init.cpp ****     HAL_TIM_Encoder_Start(encoder_[0].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 773              		.loc 3 60 26 is_stmt 0 view .LVU207
+ 774 0014 3C21     		movs	r1, #60
+ 775 0016 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 776              	.LVL51:
+  61:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[1].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 777              		.loc 3 61 2 is_stmt 1 view .LVU208
+ 778              	.LBB85:
+ 779              	.LBI85:
+ 780              		.loc 5 21 24 view .LVU209
+ 781              	.LBB86:
+ 782              		.loc 5 21 42 view .LVU210
+ 783              		.loc 5 21 42 is_stmt 0 view .LVU211
+ 784              	.LBE86:
+ 785              	.LBE85:
+  61:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[1].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 786              		.loc 3 61 23 view .LVU212
+ 787 001a 3C21     		movs	r1, #60
+ 788 001c A068     		ldr	r0, [r4, #8]
+ 789 001e FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 790              	.LVL52:
+  62:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[2].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 791              		.loc 3 62 2 is_stmt 1 view .LVU213
+ 792              	.LBB87:
+ 793              	.LBI87:
+ 794              		.loc 5 21 24 view .LVU214
+ 795              	.LBB88:
+ 796              		.loc 5 21 42 view .LVU215
+ 797              		.loc 5 21 42 is_stmt 0 view .LVU216
+ 798              	.LBE88:
+ 799              	.LBE87:
+  62:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[2].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 800              		.loc 3 62 23 view .LVU217
+ 801 0022 3C21     		movs	r1, #60
+ 802 0024 2069     		ldr	r0, [r4, #16]
+ 803 0026 FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 804              	.LVL53:
+  63:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[3].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 805              		.loc 3 63 2 is_stmt 1 view .LVU218
+ 806              	.LBB89:
+ 807              	.LBI89:
+ 808              		.loc 5 21 24 view .LVU219
+ 809              	.LBB90:
+ 810              		.loc 5 21 42 view .LVU220
+ 811              		.loc 5 21 42 is_stmt 0 view .LVU221
+ 812              	.LBE90:
+ 813              	.LBE89:
+  63:Core/Src/robot/robo_init.cpp **** 	HAL_TIM_Encoder_Start(encoder_[3].get_TimerHandle(), TIM_CHANNEL_ALL);
+ 814              		.loc 3 63 23 view .LVU222
+ 815 002a 3C21     		movs	r1, #60
+ 816 002c A069     		ldr	r0, [r4, #24]
+ 817 002e FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 818              	.LVL54:
+  65:Core/Src/robot/robo_init.cpp **** }
+ 819              		.loc 3 65 1 view .LVU223
+ARM GAS  /tmp/cc7wK8fc.s 			page 22
+
+
+ 820 0032 10BD     		pop	{r4, pc}
+ 821              	.L46:
+ 822              		.align	2
+ 823              	.L45:
+ 824 0034 00000000 		.word	.LANCHOR1
+ 825 0038 00000000 		.word	htim1
+ 826 003c 00000000 		.word	htim2
+ 827 0040 00000000 		.word	htim3
+ 828 0044 00000000 		.word	htim4
+ 829              		.cfi_endproc
+ 830              	.LFE187:
+ 832              		.section	.text._Z21freeWheelAllInitilizev,"ax",%progbits
+ 833              		.align	1
+ 834              		.global	_Z21freeWheelAllInitilizev
+ 835              		.syntax unified
+ 836              		.thumb
+ 837              		.thumb_func
+ 838              		.fpu fpv4-sp-d16
+ 840              	_Z21freeWheelAllInitilizev:
+ 841              	.LFB188:
+  67:Core/Src/robot/robo_init.cpp **** {
+ 842              		.loc 3 67 1 is_stmt 1 view -0
+ 843              		.cfi_startproc
+ 844              		@ args = 0, pretend = 0, frame = 0
+ 845              		@ frame_needed = 0, uses_anonymous_args = 0
+ 846              		@ link register save eliminated.
+ 847 0000 10B4     		push	{r4}
+ 848              	.LCFI3:
+ 849              		.cfi_def_cfa_offset 4
+ 850              		.cfi_offset 4, -4
+  68:Core/Src/robot/robo_init.cpp **** 	ex_config.id='x';
+ 851              		.loc 3 68 2 view .LVU225
+  68:Core/Src/robot/robo_init.cpp **** 	ex_config.id='x';
+ 852              		.loc 3 68 14 is_stmt 0 view .LVU226
+ 853 0002 0E4A     		ldr	r2, .L49
+ 854 0004 7823     		movs	r3, #120
+ 855 0006 1375     		strb	r3, [r2, #20]
+  69:Core/Src/robot/robo_init.cpp **** 	ex_config.port = GPIOC;
+ 856              		.loc 3 69 2 is_stmt 1 view .LVU227
+  69:Core/Src/robot/robo_init.cpp **** 	ex_config.port = GPIOC;
+ 857              		.loc 3 69 17 is_stmt 0 view .LVU228
+ 858 0008 0D4C     		ldr	r4, .L49+4
+ 859 000a 1460     		str	r4, [r2]
+  70:Core/Src/robot/robo_init.cpp **** 	ex_config.pin = GPIO_PIN_5;
+ 860              		.loc 3 70 2 is_stmt 1 view .LVU229
+  70:Core/Src/robot/robo_init.cpp **** 	ex_config.pin = GPIO_PIN_5;
+ 861              		.loc 3 70 16 is_stmt 0 view .LVU230
+ 862 000c 2023     		movs	r3, #32
+ 863 000e 9380     		strh	r3, [r2, #4]	@ movhi
+  71:Core/Src/robot/robo_init.cpp **** 	ex_config.ppr=200;
+ 864              		.loc 3 71 2 is_stmt 1 view .LVU231
+  71:Core/Src/robot/robo_init.cpp **** 	ex_config.ppr=200;
+ 865              		.loc 3 71 15 is_stmt 0 view .LVU232
+ 866 0010 0C48     		ldr	r0, .L49+8
+ 867 0012 1061     		str	r0, [r2, #16]	@ float
+  72:Core/Src/robot/robo_init.cpp **** 	ex_config.radius=0.0294;
+ 868              		.loc 3 72 2 is_stmt 1 view .LVU233
+ARM GAS  /tmp/cc7wK8fc.s 			page 23
+
+
+  72:Core/Src/robot/robo_init.cpp **** 	ex_config.radius=0.0294;
+ 869              		.loc 3 72 18 is_stmt 0 view .LVU234
+ 870 0014 0C49     		ldr	r1, .L49+12
+ 871 0016 D160     		str	r1, [r2, #12]	@ float
+  74:Core/Src/robot/robo_init.cpp **** 	ey_config.id='y';
+ 872              		.loc 3 74 2 is_stmt 1 view .LVU235
+  74:Core/Src/robot/robo_init.cpp **** 	ey_config.id='y';
+ 873              		.loc 3 74 14 is_stmt 0 view .LVU236
+ 874 0018 0C4B     		ldr	r3, .L49+16
+ 875 001a 4FF0790C 		mov	ip, #121
+ 876 001e 83F814C0 		strb	ip, [r3, #20]
+  75:Core/Src/robot/robo_init.cpp **** 	ey_config.port = GPIOC;
+ 877              		.loc 3 75 2 is_stmt 1 view .LVU237
+  75:Core/Src/robot/robo_init.cpp **** 	ey_config.port = GPIOC;
+ 878              		.loc 3 75 17 is_stmt 0 view .LVU238
+ 879 0022 1C60     		str	r4, [r3]
+  76:Core/Src/robot/robo_init.cpp **** 	ey_config.pin = GPIO_PIN_4;
+ 880              		.loc 3 76 2 is_stmt 1 view .LVU239
+  76:Core/Src/robot/robo_init.cpp **** 	ey_config.pin = GPIO_PIN_4;
+ 881              		.loc 3 76 16 is_stmt 0 view .LVU240
+ 882 0024 1024     		movs	r4, #16
+ 883 0026 9C80     		strh	r4, [r3, #4]	@ movhi
+  77:Core/Src/robot/robo_init.cpp **** 	ey_config.ppr=200;
+ 884              		.loc 3 77 2 is_stmt 1 view .LVU241
+  77:Core/Src/robot/robo_init.cpp **** 	ey_config.ppr=200;
+ 885              		.loc 3 77 15 is_stmt 0 view .LVU242
+ 886 0028 1861     		str	r0, [r3, #16]	@ float
+  78:Core/Src/robot/robo_init.cpp **** 	ey_config.radius=0.0294;
+ 887              		.loc 3 78 2 is_stmt 1 view .LVU243
+  78:Core/Src/robot/robo_init.cpp **** 	ey_config.radius=0.0294;
+ 888              		.loc 3 78 18 is_stmt 0 view .LVU244
+ 889 002a D960     		str	r1, [r3, #12]	@ float
+  80:Core/Src/robot/robo_init.cpp **** 	ex.set_config(&ex_config);
+ 890              		.loc 3 80 2 is_stmt 1 view .LVU245
+ 891              	.LVL55:
+ 892              	.LBB91:
+ 893              	.LBI91:
+  28:Core/Inc/actuator/free_wheel.h ****     void set_config(free_wheel_config *config)
+ 894              		.loc 2 28 10 view .LVU246
+ 895              	.LBB92:
+  29:Core/Inc/actuator/free_wheel.h ****     {
+  30:Core/Inc/actuator/free_wheel.h ****         this->config=config;
+ 896              		.loc 2 30 9 view .LVU247
+ 897              		.loc 2 30 21 is_stmt 0 view .LVU248
+ 898 002c 0849     		ldr	r1, .L49+20
+ 899 002e 0A60     		str	r2, [r1]
+ 900              	.LVL56:
+ 901              		.loc 2 30 21 view .LVU249
+ 902              	.LBE92:
+ 903              	.LBE91:
+  81:Core/Src/robot/robo_init.cpp **** 	ey.set_config(&ey_config);
+ 904              		.loc 3 81 2 is_stmt 1 view .LVU250
+ 905              	.LBB93:
+ 906              	.LBI93:
+  28:Core/Inc/actuator/free_wheel.h ****     void set_config(free_wheel_config *config)
+ 907              		.loc 2 28 10 view .LVU251
+ 908              	.LBB94:
+ARM GAS  /tmp/cc7wK8fc.s 			page 24
+
+
+ 909              		.loc 2 30 9 view .LVU252
+ 910              		.loc 2 30 21 is_stmt 0 view .LVU253
+ 911 0030 084A     		ldr	r2, .L49+24
+ 912 0032 1360     		str	r3, [r2]
+ 913              	.LVL57:
+ 914              		.loc 2 30 21 view .LVU254
+ 915              	.LBE94:
+ 916              	.LBE93:
+ 917              		.loc 3 84 1 view .LVU255
+ 918 0034 5DF8044B 		ldr	r4, [sp], #4
+ 919              	.LCFI4:
+ 920              		.cfi_restore 4
+ 921              		.cfi_def_cfa_offset 0
+ 922 0038 7047     		bx	lr
+ 923              	.L50:
+ 924 003a 00BF     		.align	2
+ 925              	.L49:
+ 926 003c 00000000 		.word	.LANCHOR5
+ 927 0040 00080240 		.word	1073874944
+ 928 0044 00004843 		.word	1128792064
+ 929 0048 45D8F03C 		.word	1022416965
+ 930 004c 00000000 		.word	.LANCHOR6
+ 931 0050 00000000 		.word	.LANCHOR2
+ 932 0054 00000000 		.word	.LANCHOR3
+ 933              		.cfi_endproc
+ 934              	.LFE188:
+ 936              		.section	.text._Z9robo_initv,"ax",%progbits
+ 937              		.align	1
+ 938              		.global	_Z9robo_initv
+ 939              		.syntax unified
+ 940              		.thumb
+ 941              		.thumb_func
+ 942              		.fpu fpv4-sp-d16
+ 944              	_Z9robo_initv:
+ 945              	.LFB185:
+   9:Core/Src/robot/robo_init.cpp **** {
+ 946              		.loc 3 9 1 is_stmt 1 view -0
+ 947              		.cfi_startproc
+ 948              		@ args = 0, pretend = 0, frame = 0
+ 949              		@ frame_needed = 0, uses_anonymous_args = 0
+ 950 0000 08B5     		push	{r3, lr}
+ 951              	.LCFI5:
+ 952              		.cfi_def_cfa_offset 8
+ 953              		.cfi_offset 3, -8
+ 954              		.cfi_offset 14, -4
+  10:Core/Src/robot/robo_init.cpp **** 	motorAllInitilize();
+ 955              		.loc 3 10 2 view .LVU257
+  10:Core/Src/robot/robo_init.cpp **** 	motorAllInitilize();
+ 956              		.loc 3 10 19 is_stmt 0 view .LVU258
+ 957 0002 FFF7FEFF 		bl	_Z17motorAllInitilizev
+ 958              	.LVL58:
+  11:Core/Src/robot/robo_init.cpp **** 	encoderAllInitilize();
+ 959              		.loc 3 11 2 is_stmt 1 view .LVU259
+  11:Core/Src/robot/robo_init.cpp **** 	encoderAllInitilize();
+ 960              		.loc 3 11 21 is_stmt 0 view .LVU260
+ 961 0006 FFF7FEFF 		bl	_Z19encoderAllInitilizev
+ 962              	.LVL59:
+ARM GAS  /tmp/cc7wK8fc.s 			page 25
+
+
+  12:Core/Src/robot/robo_init.cpp **** 	freeWheelAllInitilize();
+ 963              		.loc 3 12 2 is_stmt 1 view .LVU261
+  12:Core/Src/robot/robo_init.cpp **** 	freeWheelAllInitilize();
+ 964              		.loc 3 12 23 is_stmt 0 view .LVU262
+ 965 000a FFF7FEFF 		bl	_Z21freeWheelAllInitilizev
+ 966              	.LVL60:
+  13:Core/Src/robot/robo_init.cpp **** }
+ 967              		.loc 3 13 1 view .LVU263
+ 968 000e 08BD     		pop	{r3, pc}
+ 969              		.cfi_endproc
+ 970              	.LFE185:
+ 972              		.section	.text._GLOBAL__sub_I_ex,"ax",%progbits
+ 973              		.align	1
+ 974              		.syntax unified
+ 975              		.thumb
+ 976              		.thumb_func
+ 977              		.fpu fpv4-sp-d16
+ 979              	_GLOBAL__sub_I_ex:
+ 980              	.LFB192:
+ 981              		.loc 3 84 1 is_stmt 1 view -0
+ 982              		.cfi_startproc
+ 983              		@ args = 0, pretend = 0, frame = 0
+ 984              		@ frame_needed = 0, uses_anonymous_args = 0
+ 985 0000 08B5     		push	{r3, lr}
+ 986              	.LCFI6:
+ 987              		.cfi_def_cfa_offset 8
+ 988              		.cfi_offset 3, -8
+ 989              		.cfi_offset 14, -4
+ 990              		.loc 3 84 1 is_stmt 0 view .LVU265
+ 991 0002 4FF6FF71 		movw	r1, #65535
+ 992 0006 0120     		movs	r0, #1
+ 993 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 994              	.LVL61:
+ 995 000c 08BD     		pop	{r3, pc}
+ 996              		.cfi_endproc
+ 997              	.LFE192:
+ 999              		.section	.init_array,"aw",%init_array
+ 1000              		.align	2
+ 1001 0000 00000000 		.word	_GLOBAL__sub_I_ex(target1)
+ 1002              		.weak	_ZTSN3ros3MsgE
+ 1003              		.section	.rodata._ZTSN3ros3MsgE,"aG",%progbits,_ZTSN3ros3MsgE,comdat
+ 1004              		.align	2
+ 1007              	_ZTSN3ros3MsgE:
+ 1008 0000 4E33726F 		.ascii	"N3ros3MsgE\000"
+ 1008      73334D73 
+ 1008      674500
+ 1009              		.weak	_ZTIN3ros3MsgE
+ 1010              		.section	.rodata._ZTIN3ros3MsgE,"aG",%progbits,_ZTIN3ros3MsgE,comdat
+ 1011              		.align	2
+ 1014              	_ZTIN3ros3MsgE:
+ 1015 0000 08000000 		.word	_ZTVN10__cxxabiv117__class_type_infoE+8
+ 1016 0004 00000000 		.word	_ZTSN3ros3MsgE
+ 1017              		.weak	_ZTSN9actuators18motor_driver_paramE
+ 1018              		.section	.rodata._ZTSN9actuators18motor_driver_paramE,"aG",%progbits,_ZTSN9actuators18motor_driver
+ 1019              		.align	2
+ 1022              	_ZTSN9actuators18motor_driver_paramE:
+ 1023 0000 4E396163 		.ascii	"N9actuators18motor_driver_paramE\000"
+ARM GAS  /tmp/cc7wK8fc.s 			page 26
+
+
+ 1023      74756174 
+ 1023      6F727331 
+ 1023      386D6F74 
+ 1023      6F725F64 
+ 1024              		.weak	_ZTIN9actuators18motor_driver_paramE
+ 1025              		.section	.rodata._ZTIN9actuators18motor_driver_paramE,"aG",%progbits,_ZTIN9actuators18motor_driver
+ 1026              		.align	2
+ 1029              	_ZTIN9actuators18motor_driver_paramE:
+ 1030 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 1031 0004 00000000 		.word	_ZTSN9actuators18motor_driver_paramE
+ 1032 0008 00000000 		.word	_ZTIN3ros3MsgE
+ 1033              		.weak	_ZTVN3ros3MsgE
+ 1034              		.section	.rodata._ZTVN3ros3MsgE,"aG",%progbits,_ZTVN3ros3MsgE,comdat
+ 1035              		.align	2
+ 1038              	_ZTVN3ros3MsgE:
+ 1039 0000 00000000 		.word	0
+ 1040 0004 00000000 		.word	_ZTIN3ros3MsgE
+ 1041 0008 00000000 		.word	__cxa_pure_virtual
+ 1042 000c 00000000 		.word	__cxa_pure_virtual
+ 1043 0010 00000000 		.word	__cxa_pure_virtual
+ 1044 0014 00000000 		.word	__cxa_pure_virtual
+ 1045              		.weak	_ZTVN9actuators18motor_driver_paramE
+ 1046              		.section	.rodata._ZTVN9actuators18motor_driver_paramE,"aG",%progbits,_ZTVN9actuators18motor_driver
+ 1047              		.align	2
+ 1050              	_ZTVN9actuators18motor_driver_paramE:
+ 1051 0000 00000000 		.word	0
+ 1052 0004 00000000 		.word	_ZTIN9actuators18motor_driver_paramE
+ 1053 0008 00000000 		.word	_ZNK9actuators18motor_driver_param9serializeEPh
+ 1054 000c 00000000 		.word	_ZN9actuators18motor_driver_param11deserializeEPh
+ 1055 0010 00000000 		.word	_ZN9actuators18motor_driver_param7getTypeEv
+ 1056 0014 00000000 		.word	_ZN9actuators18motor_driver_param6getMD5Ev
+ 1057              		.global	encoder_
+ 1058              		.global	motor_
+ 1059              		.global	ey
+ 1060              		.global	ex
+ 1061              		.section	.bss._ZL20motor_configurations,"aw",%nobits
+ 1062              		.align	2
+ 1063              		.set	.LANCHOR4,. + 0
+ 1066              	_ZL20motor_configurations:
+ 1067 0000 00000000 		.space	96
+ 1067      00000000 
+ 1067      00000000 
+ 1067      00000000 
+ 1067      00000000 
+ 1068              		.section	.bss._ZL9ex_config,"aw",%nobits
+ 1069              		.align	2
+ 1070              		.set	.LANCHOR5,. + 0
+ 1073              	_ZL9ex_config:
+ 1074 0000 00000000 		.space	24
+ 1074      00000000 
+ 1074      00000000 
+ 1074      00000000 
+ 1074      00000000 
+ 1075              		.section	.bss._ZL9ey_config,"aw",%nobits
+ 1076              		.align	2
+ 1077              		.set	.LANCHOR6,. + 0
+ 1080              	_ZL9ey_config:
+ARM GAS  /tmp/cc7wK8fc.s 			page 27
+
+
+ 1081 0000 00000000 		.space	24
+ 1081      00000000 
+ 1081      00000000 
+ 1081      00000000 
+ 1081      00000000 
+ 1082              		.section	.bss.encoder_,"aw",%nobits
+ 1083              		.align	2
+ 1084              		.set	.LANCHOR1,. + 0
+ 1087              	encoder_:
+ 1088 0000 00000000 		.space	32
+ 1088      00000000 
+ 1088      00000000 
+ 1088      00000000 
+ 1088      00000000 
+ 1089              		.section	.bss.ex,"aw",%nobits
+ 1090              		.align	2
+ 1091              		.set	.LANCHOR2,. + 0
+ 1094              	ex:
+ 1095 0000 00000000 		.space	8
+ 1095      00000000 
+ 1096              		.section	.bss.ey,"aw",%nobits
+ 1097              		.align	2
+ 1098              		.set	.LANCHOR3,. + 0
+ 1101              	ey:
+ 1102 0000 00000000 		.space	8
+ 1102      00000000 
+ 1103              		.section	.bss.motor_,"aw",%nobits
+ 1104              		.align	2
+ 1105              		.set	.LANCHOR0,. + 0
+ 1108              	motor_:
+ 1109 0000 00000000 		.space	64
+ 1109      00000000 
+ 1109      00000000 
+ 1109      00000000 
+ 1109      00000000 
+ 1110              		.text
+ 1111              	.Letext0:
+ 1112              		.file 7 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_de
+ 1113              		.file 8 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint
+ 1114              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 1115              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1116              		.file 11 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/inc
+ 1117              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1118              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1119              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1120              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1121              		.file 16 "Core/Inc/periphs/tim.h"
+ 1122              		.file 17 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 1123              		.file 18 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 1124              		.file 19 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 1125              		.file 20 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 1126              		.file 21 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdlib.h"
+ 1127              		.file 22 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 1128              		.file 23 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h"
+ 1129              		.file 24 "<built-in>"
+ARM GAS  /tmp/cc7wK8fc.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 robo_init.cpp
+     /tmp/cc7wK8fc.s:18     .text._ZNK9actuators18motor_driver_param9serializeEPh:0000000000000000 $t
+     /tmp/cc7wK8fc.s:26     .text._ZNK9actuators18motor_driver_param9serializeEPh:0000000000000000 _ZNK9actuators18motor_driver_param9serializeEPh
+     /tmp/cc7wK8fc.s:81     .text._ZN9actuators18motor_driver_param11deserializeEPh:0000000000000000 $t
+     /tmp/cc7wK8fc.s:88     .text._ZN9actuators18motor_driver_param11deserializeEPh:0000000000000000 _ZN9actuators18motor_driver_param11deserializeEPh
+     /tmp/cc7wK8fc.s:141    .rodata._ZN9actuators18motor_driver_param7getTypeEv.str1.4:0000000000000000 $d
+     /tmp/cc7wK8fc.s:145    .text._ZN9actuators18motor_driver_param7getTypeEv:0000000000000000 $t
+     /tmp/cc7wK8fc.s:152    .text._ZN9actuators18motor_driver_param7getTypeEv:0000000000000000 _ZN9actuators18motor_driver_param7getTypeEv
+     /tmp/cc7wK8fc.s:169    .text._ZN9actuators18motor_driver_param7getTypeEv:0000000000000004 $d
+     /tmp/cc7wK8fc.s:174    .rodata._ZN9actuators18motor_driver_param6getMD5Ev.str1.4:0000000000000000 $d
+     /tmp/cc7wK8fc.s:178    .text._ZN9actuators18motor_driver_param6getMD5Ev:0000000000000000 $t
+     /tmp/cc7wK8fc.s:185    .text._ZN9actuators18motor_driver_param6getMD5Ev:0000000000000000 _ZN9actuators18motor_driver_param6getMD5Ev
+     /tmp/cc7wK8fc.s:202    .text._ZN9actuators18motor_driver_param6getMD5Ev:0000000000000004 $d
+     /tmp/cc7wK8fc.s:207    .text._ZN10free_wheelD2Ev:0000000000000000 $t
+     /tmp/cc7wK8fc.s:214    .text._ZN10free_wheelD2Ev:0000000000000000 _ZN10free_wheelD2Ev
+     /tmp/cc7wK8fc.s:214    .text._ZN10free_wheelD2Ev:0000000000000000 _ZN10free_wheelD1Ev
+     /tmp/cc7wK8fc.s:231    .text.__tcf_0:0000000000000000 $t
+     /tmp/cc7wK8fc.s:237    .text.__tcf_0:0000000000000000 __tcf_0
+     /tmp/cc7wK8fc.s:268    .text.__tcf_0:0000000000000010 $d
+     /tmp/cc7wK8fc.s:274    .text.__tcf_1:0000000000000000 $t
+     /tmp/cc7wK8fc.s:280    .text.__tcf_1:0000000000000000 __tcf_1
+     /tmp/cc7wK8fc.s:310    .text.__tcf_1:0000000000000010 $d
+     /tmp/cc7wK8fc.s:316    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 $t
+     /tmp/cc7wK8fc.s:322    .text._Z41__static_initialization_and_destruction_0ii:0000000000000000 _Z41__static_initialization_and_destruction_0ii
+     /tmp/cc7wK8fc.s:497    .text._Z41__static_initialization_and_destruction_0ii:0000000000000088 $d
+     /tmp/cc7wK8fc.s:1038   .rodata._ZTVN3ros3MsgE:0000000000000000 _ZTVN3ros3MsgE
+     /tmp/cc7wK8fc.s:1050   .rodata._ZTVN9actuators18motor_driver_paramE:0000000000000000 _ZTVN9actuators18motor_driver_paramE
+     /tmp/cc7wK8fc.s:511    .text._Z17motorAllInitilizev:0000000000000000 $t
+     /tmp/cc7wK8fc.s:518    .text._Z17motorAllInitilizev:0000000000000000 _Z17motorAllInitilizev
+     /tmp/cc7wK8fc.s:688    .text._Z17motorAllInitilizev:00000000000000a0 $d
+     /tmp/cc7wK8fc.s:699    .text._Z19encoderAllInitilizev:0000000000000000 $t
+     /tmp/cc7wK8fc.s:706    .text._Z19encoderAllInitilizev:0000000000000000 _Z19encoderAllInitilizev
+     /tmp/cc7wK8fc.s:824    .text._Z19encoderAllInitilizev:0000000000000034 $d
+     /tmp/cc7wK8fc.s:833    .text._Z21freeWheelAllInitilizev:0000000000000000 $t
+     /tmp/cc7wK8fc.s:840    .text._Z21freeWheelAllInitilizev:0000000000000000 _Z21freeWheelAllInitilizev
+     /tmp/cc7wK8fc.s:926    .text._Z21freeWheelAllInitilizev:000000000000003c $d
+     /tmp/cc7wK8fc.s:937    .text._Z9robo_initv:0000000000000000 $t
+     /tmp/cc7wK8fc.s:944    .text._Z9robo_initv:0000000000000000 _Z9robo_initv
+     /tmp/cc7wK8fc.s:973    .text._GLOBAL__sub_I_ex:0000000000000000 $t
+     /tmp/cc7wK8fc.s:979    .text._GLOBAL__sub_I_ex:0000000000000000 _GLOBAL__sub_I_ex
+     /tmp/cc7wK8fc.s:1000   .init_array:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1007   .rodata._ZTSN3ros3MsgE:0000000000000000 _ZTSN3ros3MsgE
+     /tmp/cc7wK8fc.s:1004   .rodata._ZTSN3ros3MsgE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1014   .rodata._ZTIN3ros3MsgE:0000000000000000 _ZTIN3ros3MsgE
+     /tmp/cc7wK8fc.s:1011   .rodata._ZTIN3ros3MsgE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1022   .rodata._ZTSN9actuators18motor_driver_paramE:0000000000000000 _ZTSN9actuators18motor_driver_paramE
+     /tmp/cc7wK8fc.s:1019   .rodata._ZTSN9actuators18motor_driver_paramE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1029   .rodata._ZTIN9actuators18motor_driver_paramE:0000000000000000 _ZTIN9actuators18motor_driver_paramE
+     /tmp/cc7wK8fc.s:1026   .rodata._ZTIN9actuators18motor_driver_paramE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1035   .rodata._ZTVN3ros3MsgE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1047   .rodata._ZTVN9actuators18motor_driver_paramE:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1087   .bss.encoder_:0000000000000000 encoder_
+     /tmp/cc7wK8fc.s:1108   .bss.motor_:0000000000000000 motor_
+     /tmp/cc7wK8fc.s:1101   .bss.ey:0000000000000000 ey
+     /tmp/cc7wK8fc.s:1094   .bss.ex:0000000000000000 ex
+     /tmp/cc7wK8fc.s:1062   .bss._ZL20motor_configurations:0000000000000000 $d
+ARM GAS  /tmp/cc7wK8fc.s 			page 29
+
+
+     /tmp/cc7wK8fc.s:1066   .bss._ZL20motor_configurations:0000000000000000 _ZL20motor_configurations
+     /tmp/cc7wK8fc.s:1069   .bss._ZL9ex_config:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1073   .bss._ZL9ex_config:0000000000000000 _ZL9ex_config
+     /tmp/cc7wK8fc.s:1076   .bss._ZL9ey_config:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1080   .bss._ZL9ey_config:0000000000000000 _ZL9ey_config
+     /tmp/cc7wK8fc.s:1083   .bss.encoder_:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1090   .bss.ex:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1097   .bss.ey:0000000000000000 $d
+     /tmp/cc7wK8fc.s:1104   .bss.motor_:0000000000000000 $d
+                           .group:0000000000000000 _ZN10free_wheelD5Ev
+
+UNDEFINED SYMBOLS
+_Znwj
+__aeabi_atexit
+__dso_handle
+HAL_TIM_Base_Start
+HAL_TIM_PWM_Start
+htim8
+HAL_TIM_Encoder_Start
+htim1
+htim2
+htim3
+htim4
+_ZTVN10__cxxabiv117__class_type_infoE
+_ZTVN10__cxxabiv120__si_class_type_infoE
+__cxa_pure_virtual

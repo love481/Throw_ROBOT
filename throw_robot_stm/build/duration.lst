@@ -1,0 +1,409 @@
+ARM GAS  /tmp/ccfKd7Bo.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"duration.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN3ros22normalizeSecNSecSignedERlS0_,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN3ros22normalizeSecNSecSignedERlS0_
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_ZN3ros22normalizeSecNSecSignedERlS0_:
+  27              	.LVL0:
+  28              	.LFB232:
+  29              		.file 1 "Core/Src/duration.cpp"
+   1:Core/Src/duration.cpp **** /*
+   2:Core/Src/duration.cpp ****  * Software License Agreement (BSD License)
+   3:Core/Src/duration.cpp ****  *
+   4:Core/Src/duration.cpp ****  * Copyright (c) 2011, Willow Garage, Inc.
+   5:Core/Src/duration.cpp ****  * All rights reserved.
+   6:Core/Src/duration.cpp ****  *
+   7:Core/Src/duration.cpp ****  * Redistribution and use in source and binary forms, with or without
+   8:Core/Src/duration.cpp ****  * modification, are permitted provided that the following conditions
+   9:Core/Src/duration.cpp ****  * are met:
+  10:Core/Src/duration.cpp ****  *
+  11:Core/Src/duration.cpp ****  *  * Redistributions of source code must retain the above copyright
+  12:Core/Src/duration.cpp ****  *    notice, this list of conditions and the following disclaimer.
+  13:Core/Src/duration.cpp ****  *  * Redistributions in binary form must reproduce the above
+  14:Core/Src/duration.cpp ****  *    copyright notice, this list of conditions and the following
+  15:Core/Src/duration.cpp ****  *    disclaimer in the documentation and/or other materials provided
+  16:Core/Src/duration.cpp ****  *    with the distribution.
+  17:Core/Src/duration.cpp ****  *  * Neither the name of Willow Garage, Inc. nor the names of its
+  18:Core/Src/duration.cpp ****  *    contributors may be used to endorse or promote prducts derived
+  19:Core/Src/duration.cpp ****  *    from this software without specific prior written permission.
+  20:Core/Src/duration.cpp ****  *
+  21:Core/Src/duration.cpp ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  22:Core/Src/duration.cpp ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  23:Core/Src/duration.cpp ****  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+  24:Core/Src/duration.cpp ****  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+  25:Core/Src/duration.cpp ****  * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  26:Core/Src/duration.cpp ****  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  27:Core/Src/duration.cpp ****  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  28:Core/Src/duration.cpp ****  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  29:Core/Src/duration.cpp ****  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ARM GAS  /tmp/ccfKd7Bo.s 			page 2
+
+
+  30:Core/Src/duration.cpp ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+  31:Core/Src/duration.cpp ****  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  32:Core/Src/duration.cpp ****  * POSSIBILITY OF SUCH DAMAGE.
+  33:Core/Src/duration.cpp ****  */
+  34:Core/Src/duration.cpp **** 
+  35:Core/Src/duration.cpp **** #include <math.h>
+  36:Core/Src/duration.cpp **** #include "ros/duration.h"
+  37:Core/Src/duration.cpp **** 
+  38:Core/Src/duration.cpp **** namespace ros
+  39:Core/Src/duration.cpp **** {
+  40:Core/Src/duration.cpp **** void normalizeSecNSecSigned(int32_t &sec, int32_t &nsec)
+  41:Core/Src/duration.cpp **** {
+  30              		.loc 1 41 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35              		.loc 1 41 1 is_stmt 0 view .LVU1
+  36 0000 10B4     		push	{r4}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 4
+  39              		.cfi_offset 4, -4
+  42:Core/Src/duration.cpp ****   int32_t nsec_part = nsec;
+  40              		.loc 1 42 3 is_stmt 1 view .LVU2
+  41              		.loc 1 42 11 is_stmt 0 view .LVU3
+  42 0002 0B68     		ldr	r3, [r1]
+  43              	.LVL1:
+  43:Core/Src/duration.cpp ****   int32_t sec_part = sec;
+  44              		.loc 1 43 3 is_stmt 1 view .LVU4
+  45              		.loc 1 43 11 is_stmt 0 view .LVU5
+  46 0004 0268     		ldr	r2, [r0]
+  47              	.LVL2:
+  48              		.loc 1 43 11 view .LVU6
+  49 0006 06E0     		b	.L3
+  50              	.L6:
+  44:Core/Src/duration.cpp **** 
+  45:Core/Src/duration.cpp ****   while (nsec_part > 1000000000L)
+  46:Core/Src/duration.cpp ****   {
+  47:Core/Src/duration.cpp ****     nsec_part -= 1000000000L;
+  51              		.loc 1 47 5 is_stmt 1 view .LVU7
+  52              		.loc 1 47 15 is_stmt 0 view .LVU8
+  53 0008 03F14443 		add	r3, r3, #-1006632960
+  54              	.LVL3:
+  55              		.loc 1 47 15 view .LVU9
+  56 000c 03F5CA03 		add	r3, r3, #6619136
+  57              	.LVL4:
+  58              		.loc 1 47 15 view .LVU10
+  59 0010 03F55853 		add	r3, r3, #13824
+  60              	.LVL5:
+  48:Core/Src/duration.cpp ****     ++sec_part;
+  61              		.loc 1 48 5 is_stmt 1 view .LVU11
+  62 0014 0132     		adds	r2, r2, #1
+  63              	.LVL6:
+  64              	.L3:
+  45:Core/Src/duration.cpp ****   {
+  65              		.loc 1 45 3 view .LVU12
+  45:Core/Src/duration.cpp ****   {
+ARM GAS  /tmp/ccfKd7Bo.s 			page 3
+
+
+  66              		.loc 1 45 20 view .LVU13
+  67 0016 094C     		ldr	r4, .L8
+  68 0018 A342     		cmp	r3, r4
+  69 001a F5DC     		bgt	.L6
+  45:Core/Src/duration.cpp ****   {
+  70              		.loc 1 45 20 is_stmt 0 view .LVU14
+  71 001c 06E0     		b	.L2
+  72              	.L7:
+  49:Core/Src/duration.cpp ****   }
+  50:Core/Src/duration.cpp ****   while (nsec_part < 0)
+  51:Core/Src/duration.cpp ****   {
+  52:Core/Src/duration.cpp ****     nsec_part += 1000000000L;
+  73              		.loc 1 52 5 is_stmt 1 view .LVU15
+  74              		.loc 1 52 15 is_stmt 0 view .LVU16
+  75 001e 03F16E53 		add	r3, r3, #998244352
+  76              	.LVL7:
+  77              		.loc 1 52 15 view .LVU17
+  78 0022 03F5D613 		add	r3, r3, #1753088
+  79              	.LVL8:
+  80              		.loc 1 52 15 view .LVU18
+  81 0026 03F52063 		add	r3, r3, #2560
+  82              	.LVL9:
+  53:Core/Src/duration.cpp ****     --sec_part;
+  83              		.loc 1 53 5 is_stmt 1 view .LVU19
+  84 002a 013A     		subs	r2, r2, #1
+  85              	.LVL10:
+  86              	.L2:
+  50:Core/Src/duration.cpp ****   {
+  87              		.loc 1 50 3 view .LVU20
+  50:Core/Src/duration.cpp ****   {
+  88              		.loc 1 50 20 view .LVU21
+  89 002c 002B     		cmp	r3, #0
+  90 002e F6DB     		blt	.L7
+  54:Core/Src/duration.cpp ****   }
+  55:Core/Src/duration.cpp ****   sec = sec_part;
+  91              		.loc 1 55 3 view .LVU22
+  92              		.loc 1 55 7 is_stmt 0 view .LVU23
+  93 0030 0260     		str	r2, [r0]
+  56:Core/Src/duration.cpp ****   nsec = nsec_part;
+  94              		.loc 1 56 3 is_stmt 1 view .LVU24
+  95              		.loc 1 56 8 is_stmt 0 view .LVU25
+  96 0032 0B60     		str	r3, [r1]
+  57:Core/Src/duration.cpp **** }
+  97              		.loc 1 57 1 view .LVU26
+  98 0034 5DF8044B 		ldr	r4, [sp], #4
+  99              	.LCFI1:
+ 100              		.cfi_restore 4
+ 101              		.cfi_def_cfa_offset 0
+ 102 0038 7047     		bx	lr
+ 103              	.L9:
+ 104 003a 00BF     		.align	2
+ 105              	.L8:
+ 106 003c 00CA9A3B 		.word	1000000000
+ 107              		.cfi_endproc
+ 108              	.LFE232:
+ 110              		.section	.text._ZN3ros8DurationpLERKS0_,"ax",%progbits
+ 111              		.align	1
+ARM GAS  /tmp/ccfKd7Bo.s 			page 4
+
+
+ 112              		.global	_ZN3ros8DurationpLERKS0_
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.fpu fpv4-sp-d16
+ 118              	_ZN3ros8DurationpLERKS0_:
+ 119              	.LVL11:
+ 120              	.LFB233:
+  58:Core/Src/duration.cpp **** 
+  59:Core/Src/duration.cpp **** Duration& Duration::operator+=(const Duration &rhs)
+  60:Core/Src/duration.cpp **** {
+ 121              		.loc 1 60 1 is_stmt 1 view -0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              		.loc 1 60 1 is_stmt 0 view .LVU28
+ 126 0000 10B5     		push	{r4, lr}
+ 127              	.LCFI2:
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 4, -8
+ 130              		.cfi_offset 14, -4
+ 131 0002 0446     		mov	r4, r0
+  61:Core/Src/duration.cpp ****   sec += rhs.sec;
+ 132              		.loc 1 61 3 is_stmt 1 view .LVU29
+ 133              		.loc 1 61 14 is_stmt 0 view .LVU30
+ 134 0004 0A68     		ldr	r2, [r1]
+ 135              		.loc 1 61 7 view .LVU31
+ 136 0006 0368     		ldr	r3, [r0]
+ 137 0008 1344     		add	r3, r3, r2
+ 138 000a 0360     		str	r3, [r0]
+  62:Core/Src/duration.cpp ****   nsec += rhs.nsec;
+ 139              		.loc 1 62 3 is_stmt 1 view .LVU32
+ 140              		.loc 1 62 15 is_stmt 0 view .LVU33
+ 141 000c 4A68     		ldr	r2, [r1, #4]
+ 142              		.loc 1 62 8 view .LVU34
+ 143 000e 4368     		ldr	r3, [r0, #4]
+ 144 0010 1344     		add	r3, r3, r2
+ 145 0012 0146     		mov	r1, r0
+ 146              	.LVL12:
+ 147              		.loc 1 62 8 view .LVU35
+ 148 0014 41F8043F 		str	r3, [r1, #4]!
+  63:Core/Src/duration.cpp ****   normalizeSecNSecSigned(sec, nsec);
+ 149              		.loc 1 63 3 is_stmt 1 view .LVU36
+ 150              		.loc 1 63 25 is_stmt 0 view .LVU37
+ 151 0018 FFF7FEFF 		bl	_ZN3ros22normalizeSecNSecSignedERlS0_
+ 152              	.LVL13:
+  64:Core/Src/duration.cpp ****   return *this;
+ 153              		.loc 1 64 3 is_stmt 1 view .LVU38
+  65:Core/Src/duration.cpp **** }
+ 154              		.loc 1 65 1 is_stmt 0 view .LVU39
+ 155 001c 2046     		mov	r0, r4
+ 156 001e 10BD     		pop	{r4, pc}
+ 157              		.loc 1 65 1 view .LVU40
+ 158              		.cfi_endproc
+ 159              	.LFE233:
+ 161              		.section	.text._ZN3ros8DurationmIERKS0_,"ax",%progbits
+ 162              		.align	1
+ARM GAS  /tmp/ccfKd7Bo.s 			page 5
+
+
+ 163              		.global	_ZN3ros8DurationmIERKS0_
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.fpu fpv4-sp-d16
+ 169              	_ZN3ros8DurationmIERKS0_:
+ 170              	.LVL14:
+ 171              	.LFB234:
+  66:Core/Src/duration.cpp **** 
+  67:Core/Src/duration.cpp **** Duration& Duration::operator-=(const Duration &rhs)
+  68:Core/Src/duration.cpp **** {
+ 172              		.loc 1 68 1 is_stmt 1 view -0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176              		.loc 1 68 1 is_stmt 0 view .LVU42
+ 177 0000 10B5     		push	{r4, lr}
+ 178              	.LCFI3:
+ 179              		.cfi_def_cfa_offset 8
+ 180              		.cfi_offset 4, -8
+ 181              		.cfi_offset 14, -4
+ 182 0002 0446     		mov	r4, r0
+  69:Core/Src/duration.cpp ****   sec += -rhs.sec;
+ 183              		.loc 1 69 3 is_stmt 1 view .LVU43
+ 184              		.loc 1 69 15 is_stmt 0 view .LVU44
+ 185 0004 0A68     		ldr	r2, [r1]
+ 186              		.loc 1 69 7 view .LVU45
+ 187 0006 0368     		ldr	r3, [r0]
+ 188 0008 9B1A     		subs	r3, r3, r2
+ 189 000a 0360     		str	r3, [r0]
+  70:Core/Src/duration.cpp ****   nsec += -rhs.nsec;
+ 190              		.loc 1 70 3 is_stmt 1 view .LVU46
+ 191              		.loc 1 70 16 is_stmt 0 view .LVU47
+ 192 000c 4A68     		ldr	r2, [r1, #4]
+ 193              		.loc 1 70 8 view .LVU48
+ 194 000e 4368     		ldr	r3, [r0, #4]
+ 195 0010 9B1A     		subs	r3, r3, r2
+ 196 0012 0146     		mov	r1, r0
+ 197              	.LVL15:
+ 198              		.loc 1 70 8 view .LVU49
+ 199 0014 41F8043F 		str	r3, [r1, #4]!
+  71:Core/Src/duration.cpp ****   normalizeSecNSecSigned(sec, nsec);
+ 200              		.loc 1 71 3 is_stmt 1 view .LVU50
+ 201              		.loc 1 71 25 is_stmt 0 view .LVU51
+ 202 0018 FFF7FEFF 		bl	_ZN3ros22normalizeSecNSecSignedERlS0_
+ 203              	.LVL16:
+  72:Core/Src/duration.cpp ****   return *this;
+ 204              		.loc 1 72 3 is_stmt 1 view .LVU52
+  73:Core/Src/duration.cpp **** }
+ 205              		.loc 1 73 1 is_stmt 0 view .LVU53
+ 206 001c 2046     		mov	r0, r4
+ 207 001e 10BD     		pop	{r4, pc}
+ 208              		.loc 1 73 1 view .LVU54
+ 209              		.cfi_endproc
+ 210              	.LFE234:
+ 212              		.global	__aeabi_i2d
+ 213              		.global	__aeabi_dmul
+ARM GAS  /tmp/ccfKd7Bo.s 			page 6
+
+
+ 214              		.global	__aeabi_d2iz
+ 215              		.section	.text._ZN3ros8DurationmLEd,"ax",%progbits
+ 216              		.align	1
+ 217              		.global	_ZN3ros8DurationmLEd
+ 218              		.syntax unified
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.fpu fpv4-sp-d16
+ 223              	_ZN3ros8DurationmLEd:
+ 224              	.LVL17:
+ 225              	.LFB235:
+  74:Core/Src/duration.cpp **** 
+  75:Core/Src/duration.cpp **** Duration& Duration::operator*=(double scale)
+  76:Core/Src/duration.cpp **** {
+ 226              		.loc 1 76 1 is_stmt 1 view -0
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		.loc 1 76 1 is_stmt 0 view .LVU56
+ 231 0000 D0B5     		push	{r4, r6, r7, lr}
+ 232              	.LCFI4:
+ 233              		.cfi_def_cfa_offset 16
+ 234              		.cfi_offset 4, -16
+ 235              		.cfi_offset 6, -12
+ 236              		.cfi_offset 7, -8
+ 237              		.cfi_offset 14, -4
+ 238 0002 0446     		mov	r4, r0
+ 239 0004 57EC106B 		vmov	r6, r7, d0
+  77:Core/Src/duration.cpp ****   sec *= scale;
+ 240              		.loc 1 77 3 is_stmt 1 view .LVU57
+ 241              		.loc 1 77 7 is_stmt 0 view .LVU58
+ 242 0008 0068     		ldr	r0, [r0]
+ 243              	.LVL18:
+ 244              		.loc 1 77 7 view .LVU59
+ 245 000a FFF7FEFF 		bl	__aeabi_i2d
+ 246              	.LVL19:
+ 247              		.loc 1 77 7 view .LVU60
+ 248 000e 3246     		mov	r2, r6
+ 249 0010 3B46     		mov	r3, r7
+ 250 0012 FFF7FEFF 		bl	__aeabi_dmul
+ 251              	.LVL20:
+ 252 0016 FFF7FEFF 		bl	__aeabi_d2iz
+ 253              	.LVL21:
+ 254 001a 2060     		str	r0, [r4]
+  78:Core/Src/duration.cpp ****   nsec *= scale;
+ 255              		.loc 1 78 3 is_stmt 1 view .LVU61
+ 256              		.loc 1 78 8 is_stmt 0 view .LVU62
+ 257 001c 6068     		ldr	r0, [r4, #4]
+ 258 001e FFF7FEFF 		bl	__aeabi_i2d
+ 259              	.LVL22:
+ 260 0022 3246     		mov	r2, r6
+ 261 0024 3B46     		mov	r3, r7
+ 262 0026 FFF7FEFF 		bl	__aeabi_dmul
+ 263              	.LVL23:
+ 264 002a FFF7FEFF 		bl	__aeabi_d2iz
+ 265              	.LVL24:
+ 266 002e 2146     		mov	r1, r4
+ARM GAS  /tmp/ccfKd7Bo.s 			page 7
+
+
+ 267 0030 41F8040F 		str	r0, [r1, #4]!
+  79:Core/Src/duration.cpp ****   normalizeSecNSecSigned(sec, nsec);
+ 268              		.loc 1 79 3 is_stmt 1 view .LVU63
+ 269              		.loc 1 79 25 is_stmt 0 view .LVU64
+ 270 0034 2046     		mov	r0, r4
+ 271 0036 FFF7FEFF 		bl	_ZN3ros22normalizeSecNSecSignedERlS0_
+ 272              	.LVL25:
+  80:Core/Src/duration.cpp ****   return *this;
+ 273              		.loc 1 80 3 is_stmt 1 view .LVU65
+  81:Core/Src/duration.cpp **** }
+ 274              		.loc 1 81 1 is_stmt 0 view .LVU66
+ 275 003a 2046     		mov	r0, r4
+ 276 003c D0BD     		pop	{r4, r6, r7, pc}
+ 277              		.loc 1 81 1 view .LVU67
+ 278              		.cfi_endproc
+ 279              	.LFE235:
+ 281              		.text
+ 282              	.Letext0:
+ 283              		.file 2 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 284              		.file 3 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 285              		.file 4 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 286              		.file 5 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_de
+ 287              		.file 6 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/math.h"
+ 288              		.file 7 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 289              		.file 8 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint
+ 290              		.file 9 "Core/Inc/ros/ros/duration.h"
+ 291              		.file 10 "<built-in>"
+ARM GAS  /tmp/ccfKd7Bo.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 duration.cpp
+     /tmp/ccfKd7Bo.s:18     .text._ZN3ros22normalizeSecNSecSignedERlS0_:0000000000000000 $t
+     /tmp/ccfKd7Bo.s:26     .text._ZN3ros22normalizeSecNSecSignedERlS0_:0000000000000000 _ZN3ros22normalizeSecNSecSignedERlS0_
+     /tmp/ccfKd7Bo.s:106    .text._ZN3ros22normalizeSecNSecSignedERlS0_:000000000000003c $d
+     /tmp/ccfKd7Bo.s:111    .text._ZN3ros8DurationpLERKS0_:0000000000000000 $t
+     /tmp/ccfKd7Bo.s:118    .text._ZN3ros8DurationpLERKS0_:0000000000000000 _ZN3ros8DurationpLERKS0_
+     /tmp/ccfKd7Bo.s:162    .text._ZN3ros8DurationmIERKS0_:0000000000000000 $t
+     /tmp/ccfKd7Bo.s:169    .text._ZN3ros8DurationmIERKS0_:0000000000000000 _ZN3ros8DurationmIERKS0_
+     /tmp/ccfKd7Bo.s:216    .text._ZN3ros8DurationmLEd:0000000000000000 $t
+     /tmp/ccfKd7Bo.s:223    .text._ZN3ros8DurationmLEd:0000000000000000 _ZN3ros8DurationmLEd
+
+UNDEFINED SYMBOLS
+__aeabi_i2d
+__aeabi_dmul
+__aeabi_d2iz

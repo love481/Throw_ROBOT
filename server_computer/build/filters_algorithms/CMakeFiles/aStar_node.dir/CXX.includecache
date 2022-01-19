@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/love/Documents/server_computer/src/filters_algorithms/include/filters_algorithms/aStar.h
+iostream
+-
+math.h
+-
+limits.h
+-
+
+/home/love/Documents/server_computer/src/filters_algorithms/src/aStar.cpp
+filters_algorithms/aStar.h
+/home/love/Documents/server_computer/src/filters_algorithms/src/filters_algorithms/aStar.h
+vector
+-
+

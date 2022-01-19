@@ -1,0 +1,2 @@
+actuators:control:filters_algorithms:laser_line_extraction:laser_proc:rosserial_python:rosserial_stm32:sensor_devices:urg_c:urg_node
+-DCATKIN_DEVEL_PREFIX=/home/love/Documents/server_computer/devel -DCMAKE_INSTALL_PREFIX=/home/love/Documents/server_computer/install -G Unix Makefiles

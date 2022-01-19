@@ -1,0 +1,10 @@
+<launch>
+	<param name="use_sim_time" value="false"/>
+
+	<node pkg="map_server" type="map_server" name="map_server" args="$(find filters_algorithms)/maps/new_map.yaml"/>
+
+	<include file="$(find filters_algorithms)/launch/laser_scan_matcher.launch"/>
+
+	<include file="$(find filters_algorithms)/launch/amcl_diff.launch"/>
+
+</launch>

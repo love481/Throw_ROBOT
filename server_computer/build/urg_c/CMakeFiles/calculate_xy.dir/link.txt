@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/calculate_xy.dir/current/samples/calculate_xy.c.o  -o /home/love/Documents/server_computer/devel/lib/urg_c/calculate_xy  -Wl,-rpath,/home/love/Documents/server_computer/devel/lib: /home/love/Documents/server_computer/devel/lib/libopen_urg_sensor.so /home/love/Documents/server_computer/devel/lib/libliburg_c.so -lrt -lm 

@@ -1,0 +1,8 @@
+prefix=/home/love/Documents/server_computer/devel
+
+Name: laser_line_extraction
+Description: Description of laser_line_extraction
+Version: 0.1.0
+Cflags: -I/home/love/Documents/server_computer/devel/include -I/home/love/Documents/server_computer/src/laser_line_extraction/include
+Libs: -L${prefix}/lib -lline -lline_extraction -lline_extraction_ros
+Requires: geometry_msgs message_runtime roscpp sensor_msgs visualization_msgs

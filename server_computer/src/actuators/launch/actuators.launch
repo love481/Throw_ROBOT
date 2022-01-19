@@ -1,0 +1,9 @@
+<launch>
+ <include file ="$(find filters_algorithms)/launch/hector.launch"/>
+  <include file ="$(find sensor_devices)/launch/sensor_devices.launch"/>
+   <include file ="$(find urg_node)/launch/urg_lidar.launch"/>
+  <include file ="$(find filters_algorithms)/launch/filters_algorithms.launch"/>
+   <!-- <include file ="$(find filters_algorithms)/launch/my_localize.launch"/> -->
+  <node pkg="actuators" type="motor_node" name="motor" output="screen"> </node>
+  <node pkg="actuators" type="kinematics_node" name="kinematics" output="screen"> </node>
+</launch>

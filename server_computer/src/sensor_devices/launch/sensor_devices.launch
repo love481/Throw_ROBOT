@@ -1,0 +1,13 @@
+<launch>
+   <!-- <node pkg="rosserial_python" type="serial_node0.py" name="serial_node0">
+    <param name="serial_port" value="/dev/IMU"/>
+    </node> -->
+  <node pkg="rosserial_python" type="serial_node1.py" name="serial_node1">
+    <param name="serial_port" value="/dev/stm1"/>
+  </node>
+  <node pkg="joy" type="joy_node" name="joy"> </node>
+  <node pkg="sensor_devices" type="xbox_node" name="xbox" output="screen"> </node>
+  <node pkg="sensor_devices" type="encoder_node" name="encoder" output="screen"> </node>
+  <!-- <node pkg="sensor_devices" type="imuDMP_node" name="IMU" output="screen"> </node> -->
+  <node pkg="sensor_devices" type="lidar_node" name="lidar" output="screen"> </node>
+</launch>

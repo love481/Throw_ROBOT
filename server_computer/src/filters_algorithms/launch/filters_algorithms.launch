@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="filters_algorithms" type="nav_path_node" name="path_node" output="screen"> </node>
+  <!-- <node pkg="filters_algorithms" type="visualization_path_gamefield.py" name="gamefield" output="screen"> </node> -->
+   <node pkg="filters_algorithms" type="curve_node" name="curve_node" output="screen"> </node>
+</launch>

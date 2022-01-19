@@ -1,0 +1,8 @@
+prefix=/home/love/Documents/server_computer/devel
+
+Name: actuators
+Description: Description of actuators
+Version: 0.0.0
+Cflags: -I/home/love/Documents/server_computer/devel/include -I/home/love/Documents/server_computer/src/actuators/include
+Libs: -L${prefix}/lib -lactuators
+Requires: message_runtime roscpp rospy std_msgs geometry_msgs control

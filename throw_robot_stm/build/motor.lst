@@ -1,0 +1,383 @@
+ARM GAS  /tmp/ccZBQhJ9.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"motor.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZL7set_pwmP17TIM_HandleTypeDefmt,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_ZL7set_pwmP17TIM_HandleTypeDefmt:
+  26              	.LVL0:
+  27              	.LFB167:
+  28              		.file 1 "Core/Src/actuator/motor.cpp"
+   1:Core/Src/actuator/motor.cpp **** #include "motor.h"
+   2:Core/Src/actuator/motor.cpp **** /* SET DUTYCYCLE primary function */
+   3:Core/Src/actuator/motor.cpp **** static void set_pwm(TIM_HandleTypeDef *htim, uint32_t Channel, uint16_t mapped_value)
+   4:Core/Src/actuator/motor.cpp **** {
+  29              		.loc 1 4 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   5:Core/Src/actuator/motor.cpp ****         //htim->Instance->CCR3=299; 
+   6:Core/Src/actuator/motor.cpp ****          __HAL_TIM_SET_COMPARE(htim, Channel, mapped_value);
+  34              		.loc 1 6 10 view .LVU1
+  35 0000 11B9     		cbnz	r1, .L2
+  36              		.loc 1 6 10 is_stmt 0 discriminator 1 view .LVU2
+  37 0002 0368     		ldr	r3, [r0]
+  38 0004 5A63     		str	r2, [r3, #52]
+  39 0006 7047     		bx	lr
+  40              	.L2:
+  41              		.loc 1 6 10 discriminator 2 view .LVU3
+  42 0008 0429     		cmp	r1, #4
+  43 000a 04D0     		beq	.L6
+  44              		.loc 1 6 10 discriminator 4 view .LVU4
+  45 000c 0829     		cmp	r1, #8
+  46 000e 05D0     		beq	.L7
+  47              		.loc 1 6 10 discriminator 6 view .LVU5
+  48 0010 0368     		ldr	r3, [r0]
+  49 0012 1A64     		str	r2, [r3, #64]
+   7:Core/Src/actuator/motor.cpp **** }
+  50              		.loc 1 7 1 discriminator 6 view .LVU6
+  51 0014 7047     		bx	lr
+ARM GAS  /tmp/ccZBQhJ9.s 			page 2
+
+
+  52              	.L6:
+   6:Core/Src/actuator/motor.cpp **** }
+  53              		.loc 1 6 10 discriminator 3 view .LVU7
+  54 0016 0368     		ldr	r3, [r0]
+  55 0018 9A63     		str	r2, [r3, #56]
+  56 001a 7047     		bx	lr
+  57              	.L7:
+   6:Core/Src/actuator/motor.cpp **** }
+  58              		.loc 1 6 10 discriminator 5 view .LVU8
+  59 001c 0368     		ldr	r3, [r0]
+  60 001e DA63     		str	r2, [r3, #60]
+  61 0020 7047     		bx	lr
+  62              		.cfi_endproc
+  63              	.LFE167:
+  65              		.section	.text._ZL18set_motorDirectionP12Motor_config9Direction,"ax",%progbits
+  66              		.align	1
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  70              		.fpu fpv4-sp-d16
+  72              	_ZL18set_motorDirectionP12Motor_config9Direction:
+  73              	.LVL1:
+  74              	.LFB168:
+   8:Core/Src/actuator/motor.cpp **** static void set_motorDirection(Motor_config *m, Direction d)
+   9:Core/Src/actuator/motor.cpp **** {     
+  75              		.loc 1 9 1 is_stmt 1 view -0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 0
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79              		.loc 1 9 1 is_stmt 0 view .LVU10
+  80 0000 10B5     		push	{r4, lr}
+  81              	.LCFI0:
+  82              		.cfi_def_cfa_offset 8
+  83              		.cfi_offset 4, -8
+  84              		.cfi_offset 14, -4
+  85 0002 0446     		mov	r4, r0
+  10:Core/Src/actuator/motor.cpp ****         if (d == Direction::CLOCKWISE)
+  86              		.loc 1 10 9 is_stmt 1 view .LVU11
+  87 0004 61B1     		cbz	r1, .L13
+  11:Core/Src/actuator/motor.cpp ****         {
+  12:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in1_port, m->in1_pin, GPIO_PIN_RESET);
+  13:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_SET);
+  14:Core/Src/actuator/motor.cpp ****         }
+  15:Core/Src/actuator/motor.cpp ****         else if (d == Direction::ANTICLOCKWISE)
+  88              		.loc 1 15 14 view .LVU12
+  89 0006 0129     		cmp	r1, #1
+  90 0008 15D0     		beq	.L14
+  16:Core/Src/actuator/motor.cpp ****         {
+  17:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in1_port, m->in1_pin, GPIO_PIN_SET);
+  18:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+  19:Core/Src/actuator/motor.cpp ****         }
+  20:Core/Src/actuator/motor.cpp ****         else
+  21:Core/Src/actuator/motor.cpp ****         
+  22:Core/Src/actuator/motor.cpp ****         {
+  23:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in1_port, m->in1_pin, GPIO_PIN_RESET);
+  91              		.loc 1 23 17 view .LVU13
+  92              		.loc 1 23 34 is_stmt 0 view .LVU14
+ARM GAS  /tmp/ccZBQhJ9.s 			page 3
+
+
+  93 000a 0022     		movs	r2, #0
+  94 000c 8188     		ldrh	r1, [r0, #4]
+  95              	.LVL2:
+  96              		.loc 1 23 34 view .LVU15
+  97 000e 0068     		ldr	r0, [r0]
+  98              	.LVL3:
+  99              		.loc 1 23 34 view .LVU16
+ 100 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 101              	.LVL4:
+  24:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+ 102              		.loc 1 24 17 is_stmt 1 view .LVU17
+ 103              		.loc 1 24 34 is_stmt 0 view .LVU18
+ 104 0014 0022     		movs	r2, #0
+ 105 0016 A189     		ldrh	r1, [r4, #12]
+ 106 0018 A068     		ldr	r0, [r4, #8]
+ 107 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 108              	.LVL5:
+ 109              	.L8:
+  25:Core/Src/actuator/motor.cpp ****         }
+  26:Core/Src/actuator/motor.cpp **** }
+ 110              		.loc 1 26 1 view .LVU19
+ 111 001e 10BD     		pop	{r4, pc}
+ 112              	.LVL6:
+ 113              	.L13:
+  12:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_SET);
+ 114              		.loc 1 12 17 is_stmt 1 view .LVU20
+  12:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_SET);
+ 115              		.loc 1 12 34 is_stmt 0 view .LVU21
+ 116 0020 0022     		movs	r2, #0
+ 117 0022 8188     		ldrh	r1, [r0, #4]
+ 118              	.LVL7:
+  12:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_SET);
+ 119              		.loc 1 12 34 view .LVU22
+ 120 0024 0068     		ldr	r0, [r0]
+ 121              	.LVL8:
+  12:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_SET);
+ 122              		.loc 1 12 34 view .LVU23
+ 123 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 124              	.LVL9:
+  13:Core/Src/actuator/motor.cpp ****         }
+ 125              		.loc 1 13 17 is_stmt 1 view .LVU24
+  13:Core/Src/actuator/motor.cpp ****         }
+ 126              		.loc 1 13 34 is_stmt 0 view .LVU25
+ 127 002a 0122     		movs	r2, #1
+ 128 002c A189     		ldrh	r1, [r4, #12]
+ 129 002e A068     		ldr	r0, [r4, #8]
+ 130 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 131              	.LVL10:
+ 132 0034 F3E7     		b	.L8
+ 133              	.LVL11:
+ 134              	.L14:
+  17:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+ 135              		.loc 1 17 17 is_stmt 1 view .LVU26
+  17:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+ 136              		.loc 1 17 34 is_stmt 0 view .LVU27
+ 137 0036 0122     		movs	r2, #1
+ 138 0038 8188     		ldrh	r1, [r0, #4]
+ARM GAS  /tmp/ccZBQhJ9.s 			page 4
+
+
+ 139              	.LVL12:
+  17:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+ 140              		.loc 1 17 34 view .LVU28
+ 141 003a 0068     		ldr	r0, [r0]
+ 142              	.LVL13:
+  17:Core/Src/actuator/motor.cpp ****                 HAL_GPIO_WritePin(m->in2_port, m->in2_pin, GPIO_PIN_RESET);
+ 143              		.loc 1 17 34 view .LVU29
+ 144 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 145              	.LVL14:
+  18:Core/Src/actuator/motor.cpp ****         }
+ 146              		.loc 1 18 17 is_stmt 1 view .LVU30
+  18:Core/Src/actuator/motor.cpp ****         }
+ 147              		.loc 1 18 34 is_stmt 0 view .LVU31
+ 148 0040 0022     		movs	r2, #0
+ 149 0042 A189     		ldrh	r1, [r4, #12]
+ 150 0044 A068     		ldr	r0, [r4, #8]
+ 151 0046 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 152              	.LVL15:
+ 153 004a E8E7     		b	.L8
+ 154              		.cfi_endproc
+ 155              	.LFE168:
+ 157              		.section	.text._ZN5motor14set_motorParamEN9actuators18motor_driver_paramE,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	_ZN5motor14set_motorParamEN9actuators18motor_driver_paramE
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 163              		.fpu fpv4-sp-d16
+ 165              	_ZN5motor14set_motorParamEN9actuators18motor_driver_paramE:
+ 166              	.LVL16:
+ 167              	.LFB169:
+  27:Core/Src/actuator/motor.cpp **** void motor::set_motorParam(actuators::motor_driver_param param)
+  28:Core/Src/actuator/motor.cpp **** {
+ 168              		.loc 1 28 1 is_stmt 1 view -0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		.loc 1 28 1 is_stmt 0 view .LVU33
+ 173 0000 38B5     		push	{r3, r4, r5, lr}
+ 174              	.LCFI1:
+ 175              		.cfi_def_cfa_offset 16
+ 176              		.cfi_offset 3, -16
+ 177              		.cfi_offset 4, -12
+ 178              		.cfi_offset 5, -8
+ 179              		.cfi_offset 14, -4
+ 180 0002 0546     		mov	r5, r0
+ 181 0004 0C46     		mov	r4, r1
+  29:Core/Src/actuator/motor.cpp ****         if (param.dir1==1 && param.dir2==0)
+ 182              		.loc 1 29 9 is_stmt 1 view .LVU34
+ 183              		.loc 1 29 27 is_stmt 0 view .LVU35
+ 184 0006 4B68     		ldr	r3, [r1, #4]
+ 185 0008 23F07F43 		bic	r3, r3, #-16777216
+ 186 000c 23F0FF03 		bic	r3, r3, #255
+ 187              		.loc 1 29 9 view .LVU36
+ 188 0010 B3F5807F 		cmp	r3, #256
+ 189 0014 0DD0     		beq	.L20
+  30:Core/Src/actuator/motor.cpp ****         {
+ARM GAS  /tmp/ccZBQhJ9.s 			page 5
+
+
+  31:Core/Src/actuator/motor.cpp ****                 set_motorDirection(motor_, Direction::ANTICLOCKWISE);
+  32:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+  33:Core/Src/actuator/motor.cpp ****         }
+  34:Core/Src/actuator/motor.cpp ****         else if (param.dir1==0 && param.dir2==1)
+ 190              		.loc 1 34 14 is_stmt 1 view .LVU37
+ 191 0016 B3F5803F 		cmp	r3, #65536
+ 192 001a 15D0     		beq	.L21
+  35:Core/Src/actuator/motor.cpp ****         {
+  36:Core/Src/actuator/motor.cpp ****                 set_motorDirection(motor_, Direction::CLOCKWISE);
+  37:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+  38:Core/Src/actuator/motor.cpp ****         }
+  39:Core/Src/actuator/motor.cpp ****         else
+  40:Core/Src/actuator/motor.cpp ****         {
+  41:Core/Src/actuator/motor.cpp ****                 set_motorDirection(motor_, Direction::STOP);
+ 193              		.loc 1 41 17 view .LVU38
+ 194              		.loc 1 41 35 is_stmt 0 view .LVU39
+ 195 001c 0221     		movs	r1, #2
+ 196              	.LVL17:
+ 197              		.loc 1 41 35 view .LVU40
+ 198 001e 0068     		ldr	r0, [r0]
+ 199              	.LVL18:
+ 200              		.loc 1 41 35 view .LVU41
+ 201 0020 FFF7FEFF 		bl	_ZL18set_motorDirectionP12Motor_config9Direction
+ 202              	.LVL19:
+  42:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 203              		.loc 1 42 17 is_stmt 1 view .LVU42
+ 204              		.loc 1 42 25 is_stmt 0 view .LVU43
+ 205 0024 2B68     		ldr	r3, [r5]
+ 206              		.loc 1 42 24 view .LVU44
+ 207 0026 2289     		ldrh	r2, [r4, #8]
+ 208 0028 5969     		ldr	r1, [r3, #20]
+ 209 002a 1869     		ldr	r0, [r3, #16]
+ 210 002c FFF7FEFF 		bl	_ZL7set_pwmP17TIM_HandleTypeDefmt
+ 211              	.LVL20:
+ 212              	.L15:
+  43:Core/Src/actuator/motor.cpp ****         }
+  44:Core/Src/actuator/motor.cpp **** }
+ 213              		.loc 1 44 1 view .LVU45
+ 214 0030 38BD     		pop	{r3, r4, r5, pc}
+ 215              	.LVL21:
+ 216              	.L20:
+  31:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 217              		.loc 1 31 17 is_stmt 1 view .LVU46
+  31:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 218              		.loc 1 31 35 is_stmt 0 view .LVU47
+ 219 0032 0121     		movs	r1, #1
+ 220              	.LVL22:
+  31:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 221              		.loc 1 31 35 view .LVU48
+ 222 0034 0068     		ldr	r0, [r0]
+ 223              	.LVL23:
+  31:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 224              		.loc 1 31 35 view .LVU49
+ 225 0036 FFF7FEFF 		bl	_ZL18set_motorDirectionP12Motor_config9Direction
+ 226              	.LVL24:
+  32:Core/Src/actuator/motor.cpp ****         }
+ 227              		.loc 1 32 17 is_stmt 1 view .LVU50
+ARM GAS  /tmp/ccZBQhJ9.s 			page 6
+
+
+  32:Core/Src/actuator/motor.cpp ****         }
+ 228              		.loc 1 32 25 is_stmt 0 view .LVU51
+ 229 003a 2B68     		ldr	r3, [r5]
+  32:Core/Src/actuator/motor.cpp ****         }
+ 230              		.loc 1 32 24 view .LVU52
+ 231 003c 2289     		ldrh	r2, [r4, #8]
+ 232 003e 5969     		ldr	r1, [r3, #20]
+ 233 0040 1869     		ldr	r0, [r3, #16]
+ 234 0042 FFF7FEFF 		bl	_ZL7set_pwmP17TIM_HandleTypeDefmt
+ 235              	.LVL25:
+ 236 0046 F3E7     		b	.L15
+ 237              	.LVL26:
+ 238              	.L21:
+  36:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 239              		.loc 1 36 17 is_stmt 1 view .LVU53
+  36:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 240              		.loc 1 36 35 is_stmt 0 view .LVU54
+ 241 0048 0021     		movs	r1, #0
+ 242              	.LVL27:
+  36:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 243              		.loc 1 36 35 view .LVU55
+ 244 004a 0068     		ldr	r0, [r0]
+ 245              	.LVL28:
+  36:Core/Src/actuator/motor.cpp ****                 set_pwm(motor_->htim, motor_->channel,param.pwm);
+ 246              		.loc 1 36 35 view .LVU56
+ 247 004c FFF7FEFF 		bl	_ZL18set_motorDirectionP12Motor_config9Direction
+ 248              	.LVL29:
+  37:Core/Src/actuator/motor.cpp ****         }
+ 249              		.loc 1 37 17 is_stmt 1 view .LVU57
+  37:Core/Src/actuator/motor.cpp ****         }
+ 250              		.loc 1 37 25 is_stmt 0 view .LVU58
+ 251 0050 2B68     		ldr	r3, [r5]
+  37:Core/Src/actuator/motor.cpp ****         }
+ 252              		.loc 1 37 24 view .LVU59
+ 253 0052 2289     		ldrh	r2, [r4, #8]
+ 254 0054 5969     		ldr	r1, [r3, #20]
+ 255 0056 1869     		ldr	r0, [r3, #16]
+ 256 0058 FFF7FEFF 		bl	_ZL7set_pwmP17TIM_HandleTypeDefmt
+ 257              	.LVL30:
+ 258 005c E8E7     		b	.L15
+ 259              		.cfi_endproc
+ 260              	.LFE169:
+ 262              		.text
+ 263              	.Letext0:
+ 264              		.file 2 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/_de
+ 265              		.file 3 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_stdint
+ 266              		.file 4 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/incl
+ 267              		.file 5 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 268              		.file 6 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 269              		.file 7 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 270              		.file 8 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1/
+ 271              		.file 9 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdlib.h"
+ 272              		.file 10 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/c++/10.2.1
+ 273              		.file 11 "/home/love/Documents/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h"
+ 274              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 275              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 276              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ARM GAS  /tmp/ccZBQhJ9.s 			page 7
+
+
+ 277              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 278              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 279              		.file 17 "Core/Inc/actuator/motor.h"
+ 280              		.file 18 "Core/Inc/ros/actuators/motor_driver_param.h"
+ 281              		.file 19 "Core/Inc/ros/ros/msg.h"
+ 282              		.file 20 "<built-in>"
+ARM GAS  /tmp/ccZBQhJ9.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 motor.cpp
+     /tmp/ccZBQhJ9.s:18     .text._ZL7set_pwmP17TIM_HandleTypeDefmt:0000000000000000 $t
+     /tmp/ccZBQhJ9.s:25     .text._ZL7set_pwmP17TIM_HandleTypeDefmt:0000000000000000 _ZL7set_pwmP17TIM_HandleTypeDefmt
+     /tmp/ccZBQhJ9.s:66     .text._ZL18set_motorDirectionP12Motor_config9Direction:0000000000000000 $t
+     /tmp/ccZBQhJ9.s:72     .text._ZL18set_motorDirectionP12Motor_config9Direction:0000000000000000 _ZL18set_motorDirectionP12Motor_config9Direction
+     /tmp/ccZBQhJ9.s:158    .text._ZN5motor14set_motorParamEN9actuators18motor_driver_paramE:0000000000000000 $t
+     /tmp/ccZBQhJ9.s:165    .text._ZN5motor14set_motorParamEN9actuators18motor_driver_paramE:0000000000000000 _ZN5motor14set_motorParamEN9actuators18motor_driver_paramE
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
