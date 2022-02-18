@@ -46,6 +46,8 @@ float motor::computeOmega(float setpoint, float input,pid_Algorithm pid)
            return c_pid.Compute(setpoint, input);  
         else if(pid==pid_Algorithm::DISCRETE)
            return d_pid.Compute(setpoint, input); 
+         else if(pid==pid_Algorithm::FUZZY)
+           return f_pid.compute_fuzzy_selfTuning_PID(setpoint,input);; 
         else return setpoint;
 }
 void motor::set_omega(float omega)
@@ -103,14 +105,23 @@ void motor_init_base(Motor_config *m)
 }
 void pid_init_base(motor *m,pid_Algorithm *pid_Algorithm_)
 {
-  pid_Algorithm_[0]=CONTINOUS;
+ /* pid_Algorithm_[0]=CONTINOUS;
   m[0].setContinousPIDConstrain(1,20,0,-20,20);
   pid_Algorithm_[1]=CONTINOUS;
   m[1].setContinousPIDConstrain(1,20,0,-20,20);
   pid_Algorithm_[2]=CONTINOUS;
   m[2].setContinousPIDConstrain(1,20,0,-20,20);
   pid_Algorithm_[3]=CONTINOUS;
-  m[3].setContinousPIDConstrain(1,20,0,-20,20);
+  m[3].setContinousPIDConstrain(1,20,0,-20,20);*/
+  
+   pid_Algorithm_[0]=FUZZY;
+  m[0].setfuzzyPIDConstrain(1,20,0,-20,20);
+  pid_Algorithm_[1]=FUZZY;
+  m[1].setfuzzyPIDConstrain(1,20,0,-20,20);
+  pid_Algorithm_[2]=FUZZY;
+  m[2].fuzzyPIDConstrain(1,20,0,-20,20);
+  pid_Algorithm_[3]=FUZZY;
+  m[3].setfuzzyPIDConstrain(1,20,0,-20,20);
 }
 void feedback_base_callback(const actuators::Vector4::ConstPtr& msg)
 { 
