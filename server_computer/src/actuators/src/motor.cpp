@@ -47,7 +47,7 @@ float motor::computeOmega(float setpoint, float input,pid_Algorithm pid)
         else if(pid==pid_Algorithm::DISCRETE)
            return d_pid.Compute(setpoint, input); 
          else if(pid==pid_Algorithm::FUZZY)
-           return f_pid.compute_fuzzy_selfTuning_PID(setpoint,input);; 
+           return f_pid.compute_fuzzy_selfTuning_PID(setpoint,input);
         else return setpoint;
 }
 void motor::set_omega(float omega)
