@@ -6,6 +6,7 @@
 #ifndef _MOTOR_H_
 #define _MOTOR_H_
 #include "control/pid.h"
+#include "control/fuzzy_pid.h"
 #include "actuators/motor_driver_param.h"
 enum Direction
 {
@@ -55,11 +56,16 @@ public:
 		d_pid.SetOutputLimits(Min, Max);
 		d_pid.SetTunings(kp, ki, kd);
 	}
+	void setfuzzyPIDConstrain(float kp, float ki, float kd, float Min, float Max)
+	{
+		 f_pid.set_parameter(kp,ki,kd,Min,Max);
+	}
 	float computeOmega(float, float,pid_Algorithm);
 private:
 	Motor_config *_motor;
 	discrete_PID d_pid;
 	continuous_PID c_pid;
+	fuzzy_pid f_pid;
 };
 
 #endif //!_MOTOR_H_
