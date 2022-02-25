@@ -5,7 +5,7 @@ Here,You will find different packages which are given below:
 ## sensor_package:
 Handles joystick,Lidar,Encoder,IMU and so on.
 ## filters_algorithms package:
-Handles path planning algorithm such as spline interpolation technique(min acceleration and jerk),bezier curve,A* algorithm and its smoothing algorithm,path tracking omni drive controller and so on.
+Handles path planning algorithm such as spline interpolation technique(min acceleration and jerk),bezier curve,A* algorithm and its smoothing algorithm,path tracking omni drive controller and also Localization algorithms for them such as Particle filter and EKF and so on.
 ## Actuators package:
 Handles inverse kinematics for four wheeled omni drive robot,preprocessing of input encoder data using different pid controller methods and actuating the motors.
 ## Control package:
