@@ -1,6 +1,6 @@
 # Throw_ROBOT
 Autonomous code implemented in ros by integrating various pre-built and user-made packages for arrow throwing robot in robocon 2021.
-Laptop or master devices is integrated with various sensors and microcontroller through ros which does the tasks of processings and act as the main_server while other microcontroller or slave devices just operate at hardware level for reading sensor data or outputing command to various actuators.
+Laptop or master device is integrated with various sensors and microcontroller through ros which does the tasks of processing and act as the main_server while other microcontroller or slave devices just operate at hardware level for reading sensor data or outputing command to various actuators.
 Here,You will find different packages which are given below:
 ## sensor_package:
 handles joystick,Lidar,Encoder,IMU and so on.
