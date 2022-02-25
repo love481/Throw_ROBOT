@@ -3,7 +3,7 @@ Autonomous code implemented in ros by integrating various pre-built and user-mad
 Laptop or master device is integrated with various sensors and microcontroller through ros which does the tasks of processing and act as the main_server while other microcontroller or slave devices just operate at hardware level for reading sensor data or outputing command to various actuators.
 Here,You will find different packages which are given below:
 ## sensor_package:
-handles joystick,Lidar,Encoder,IMU and so on.
+Handles joystick,Lidar,Encoder,IMU and so on.
 ## filters_algorithms package:
 Handles path planning algorithm such as spline interpolation technique(min acceleration and jerk),bezier curve,A* algorithm and its smoothing algorithm,path tracking omni drive controller and so on.
 ## Actuators package:
