@@ -9,7 +9,7 @@ Handles path planning algorithm such as spline interpolation technique(min accel
 ## Actuators package:
 Handles inverse kinematics for four wheeled omni drive robot,preprocessing of input encoder data using different pid controller methods and actuating the motors.
 ## Control package:
-Contains contionous, discrete and fuzzy based pid controller and its implementation.
+Contains continuous, discrete and fuzzy based pid controller and its implementation.
 ## Other packages:
 Handles various other communication operations with stm32f4discovery board and with arduino uno and package to integrate lidar with server_computer and preprocess it to get the the line parameters of the static environment and so on.
 
